@@ -1,0 +1,64 @@
+body {
+  padding: 50px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:whitesmoke;
+  
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 15px;
+  padding-top: 80px;
+  margin-bottom: 12px;
+  background-color: rgba(245, 245, 245, 0.356);
+  
+}
+
+.container p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.container img {
+  height: 150px;
+  width: 50%;
+  padding-top: 20px;
+}
+
+/* .container {
+  display: grid;
+  
+  grid-template-rows: 30px 80rv 30px;
+  grid-template-areas: 
+  "article article article"
+  "image image image"
+  "description description description";
+  gap: 10px;
+  margin-bottom: 12px;
+
+} */
+
+/* .article {
+  grid-area: article;
+  display: flex;
+}
+
+.image {
+  grid-area: image;
+  display: flex;
+}
+
+.description {
+  grid-area: description;
+  display: flex;
+} */
+
+/* img {
+  height: 150px;
+  width: 58%;
+  padding-top: 20px;
+} */
