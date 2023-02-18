@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 
 // get /advertisement
-router.get("/home", async function(req, res, next){
+router.get("/catalogue", async function(req, res, next){
   try {
     const advertisement = await Advertisements.find();
     res.locals.advertisements = advertisement
