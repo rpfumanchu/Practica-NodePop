@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Rutas del API
  */
 app.use('/api/catalogue', require('./routes/api/catalogue'));
-
+app.use("/api/catalogue/filter", require('./routes/api/catalogue'));
 
 /**
  * Rutas del Website

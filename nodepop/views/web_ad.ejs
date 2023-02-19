@@ -31,10 +31,12 @@
   <div class="container">
   <% advertisements.forEach(elem=> { %>
       <p>Articulo <%= elem.name %> 
-        <%= elem.state %> y su precio es de <%= elem.price %> euros  <img class="image" src = "<%= elem.img %>"/>  
+        <%= elem.state %> y su precio es de <%= elem.price %> euros  <img class="image" src = "../images/<%= elem.img %>.jpg"/>  
     <% }) %> </p>
 
 </div>
+
+
 
 
   <!-- <section class="container">
