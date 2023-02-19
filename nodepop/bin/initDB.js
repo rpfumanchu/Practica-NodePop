@@ -1,33 +1,33 @@
 "use strict";
-const Advertisements = require("../models/Advertisements");
+const Ad = require("../models/Ad");
 const connection = require("../lib/connectMongoose");
 
 main().catch((err) => console.log("Hubo un error", err));
 
 async function main() {
-  // inicializo colección Advertisements
-  await initAdvertisements();
+  // inicializo colección Ad
+  await initAd();
 
   // cierro conexión
   connection.close();
 }
 
-async function initAdvertisements() {
-  // borro todos los documentos de la colección Advertisements
-  const deleted = await Advertisements.deleteMany();
+async function initAd() {
+  // borro todos los documentos de la colección Ad
+  const deleted = await Ad.deleteMany();
   console.log(`Eliminados ${deleted.deletedCount} anuncios.`);
 
   // crea los anuncios iniciales
-  const inserted = await Advertisements.insertMany([
+  const inserted = await Ad.insertMany([
     {
-      name: "Play 5",
+      name: "play 5",
       state: true,
       price: 659,
       tags: "lifestyle",
       img: "play",
     },
     {
-      name: "Xbox",
+      name: "xbox",
       state: false,
       price: 559,
       tags: "lifestyle",
@@ -84,13 +84,13 @@ async function initAdvertisements() {
     },
     {
       name: "escritorio",
-      state: true,
+      state: true ,
       price: 120,
       tags: "work",
       img: "mesa",
     },
     {
-      name: "Renault",
+      name: "renault",
       state: false,
       price: 16000,
       tags: "motor",

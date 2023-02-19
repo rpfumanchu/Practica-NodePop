@@ -4,24 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/reset.css" />
+  <link rel="stylesheet" href='/stylesheets/container.css'>
   <title>Document</title>
 </head>
 <body>
   
-
+  
+  
  
+
   <div class="container">
-    <% advertisements.forEach(elem=> { %>
+    <% ado.forEach(elem=> { %>
         <p>Articulo <%= elem.name %> 
-          <%= elem.state %> y su precio es de <%= elem.price %> euros  <img class="image" src = "../images/<%= elem.img %>.jpg"/>  
+          <%= elem.state %> <%= elem.price %>  <%= elem.tags %>  <img class="image" src = "../images/<%= elem.img %>.jpg"/>  
       <% }) %> </p>
   
   </div>
 
-  <!-- <% for (const property in advertisements) { %> 
-    <%= property.price %>
-    
-    <%} %> -->
+ 
 
 
 </body>

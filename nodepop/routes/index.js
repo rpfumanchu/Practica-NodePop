@@ -1,7 +1,7 @@
 var express = require('express');
 //const { locals } = require('../app');
 var router = express.Router();
-const Advertisements = require('../models/Advertisements');
+const Ad = require('../models/Ad');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,13 +9,13 @@ router.get('/', function(req, res, next) {
 });
 
 
-// get /advertisement
+// get /catalogue
 router.get("/catalogue", async function(req, res, next){
   try {
-    const advertisement = await Advertisements.find(
+    const ad = await Ad.find(
 
     );
-    res.locals.advertisements = advertisement
+    res.locals.ad = ad
     res.render("web_ad");
   } catch (err) {
     next(err)
@@ -23,26 +23,20 @@ router.get("/catalogue", async function(req, res, next){
   }
 })
 
-// router.get("/catalogue/range:price", async function(req, res, next){
-//   try {
-//     let price = req.params.price;
-//     const newPrice = price.split("-")
-//     const price1 = newPrice[0]
-//     const price2 = newPrice[1]
+router.get("/range/:price", async (req, res, next) => {
+  try {
 
-    
-//     const advertisement = await Advertisements.find({price:{$gte : price1, $lte : price2}})
-//     res.locals.advertisements = advertisement
-//     console.log(price1,price2)
-
-    
-//     //res.send(`Me pedíste ${price} ${price2} ${price}`);
-//     res.render("ejem");
-//   } catch (err) {
-//     next(err)
-    
-//   }
-// })
+  let price = req.params.price;
+ 
+  const pricer = await Ad.priceRange(price);
+  
+  res.locals.ado = pricer;
+  res.render("ejem");
+  
+  } catch (error) {
+    next(error)
+  }
+})
 
 
 router.get("/filter", async (req, res, next) => {
@@ -50,7 +44,7 @@ router.get("/filter", async (req, res, next) => {
     //validationResult(req).throw();
 
     //NOTE filter
-    const filterByName = req.params.name;
+    const filterByName = req.query.name;
     const filterById = req.query._id;
     const filterByTags = req.query.tags;
     const filterByState = req.query.state;
@@ -99,7 +93,7 @@ router.get("/filter", async (req, res, next) => {
 
     
 
-    const advertisement = await Advertisements.catalogue(
+    const ad = await Ad.catalogue(
       filter,
       skip,
       limit,
@@ -107,7 +101,7 @@ router.get("/filter", async (req, res, next) => {
       fields
     );
 
-    res.locals.advertisement = advertisement ;
+    res.locals.ada = ad ;
     res.render("ejem");
 
   } catch (error) {
@@ -115,5 +109,24 @@ router.get("/filter", async (req, res, next) => {
   }
 });
 
+// router.get("/filter", async function(req, res, next){
+//   try {
+//     const filterByName = req.params.name
+
+//     const filter = {};
+
+//     if (filterByName) {
+//       filter.name = filterByName;
+//     }
+
+//     const ad = await Ad.catalogue(filter);
+//     res.locals.ada = ad
+//     res.render("ejem");
+  
+//   } catch (err) {
+//     next(err)
+    
+//   }
+// })
 
 module.exports = router;

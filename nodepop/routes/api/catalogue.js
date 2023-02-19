@@ -2,7 +2,7 @@ const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { validationResult } = require("express-validator");
-const Advertisements = require("../../models/Advertisements");
+const Ad = require("../../models/Ad");
 const findOut = require("../api/validations");
 
 //NOTE CRUD: create, read, update, delete
@@ -22,9 +22,9 @@ const findOut = require("../api/validations");
 
 router.get("/", async (req, res, next) => {
   try {
-    const advertisement = await Advertisements.catalogue();
+    const ad = await Ad.catalogue();
 
-    res.json({ results: advertisement });
+    res.json({ results: ad });
   } catch (error) {
     next(error);
   }
@@ -86,7 +86,7 @@ router.get("/filter", findOut(), async (req, res, next) => {
 
     
 
-    const advertisement = await Advertisements.catalogue(
+    const ad = await Ad.catalogue(
       filter,
       skip,
       limit,
@@ -94,7 +94,7 @@ router.get("/filter", findOut(), async (req, res, next) => {
       fields
     );
 
-    res.json({ results: advertisement });
+    res.json({ results: ad });
 
   } catch (error) {
     next(error);
@@ -108,9 +108,9 @@ router.get("/tags", async (req, res, next) => {
   try {
     const tags = req.query.tags;
 
-    const advertisement = await Advertisements.distinctTag(tags);
+    const ad = await Ad.distinctTag(tags);
 
-    res.json({ results: advertisement });
+    res.json({ results: ad });
   } catch (error) {
     next(error);
   }
@@ -125,7 +125,7 @@ http: router.put("/modify/:id", async (req, res, next) => {
     const id = req.params.id;
     const data = req.body;
 
-    const updatedAd = await Advertisements.findByIdAndUpdate(id, data, {
+    const updatedAd = await Ad.findByIdAndUpdate(id, data, {
       new: true, // "nota para mi" esto hace que nos devuelva el documento actualizado
     });
 
@@ -145,7 +145,7 @@ router.post("/create", async (req, res, next) => {
     const adData = req.body;
 
     //NOTE Creo una instancia de ad en memoria
-    const ad = new Advertisements(adData);
+    const ad = new Ad(adData);
 
     //NOTE La persistimos en la base de datos
     const saveAd = await ad.save();
@@ -165,7 +165,7 @@ router.delete('/delete/:id', async (req, res, next) => {
 
     const id = req.params.id;
     
-    await Advertisements .deleteOne({ _id: id });
+    await Ad .deleteOne({ _id: id });
 
     res.json();
     console.log(`Eliminado con éxito anuncio con id ${id}`);
@@ -182,10 +182,10 @@ router.get("/range/:price", async (req, res, next) => {
 
   let price = req.params.price;
  
-  const pricer = await Advertisements.priceRange(price);
+  const pricer = await Ad.priceRange(price);
   
   res.json({ results: pricer });
-    
+  
   } catch (error) {
     next(error)
   }

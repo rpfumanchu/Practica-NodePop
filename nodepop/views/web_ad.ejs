@@ -15,21 +15,11 @@
 
   <h2>prueba anuncios</h2>
 
-  <!-- <div class="container">
-    <% advertisements.forEach(elem=> { %>
-      <p>Articulo <%= elem.name %>
-          <%= elem.state %> y su precio es de <%= elem.price %> euros  <img src = "<%= elem.img %>"/>  </p>
-      <% }) %> 
-
-  </div>
-
-  <div>
- 
-  </div> -->
+  
  
  
   <div class="container">
-  <% advertisements.forEach(elem=> { %>
+  <% ad.forEach(elem=> { %>
       <p>Articulo <%= elem.name %> 
         <%= elem.state %> y su precio es de <%= elem.price %> euros  <img class="image" src = "../images/<%= elem.img %>.jpg"/>  
     <% }) %> </p>
@@ -39,23 +29,7 @@
 
 
 
-  <!-- <section class="container">
-    <article class ="container-wrapper">
-      <h2 class="article">Encuentra lo que buscas</h2>
-    </article>
-    <section class ="container-subsection">
-      <% advertisements.forEach(elem=> { %>
-        <img class="subsection-image" src = "<%= elem.img %>"/>
-        <h3 class="subsection-title">
-          Articulo <%= elem.name %>
-        </h3>
-        <small class="subsection-subtitle">
-          <%= elem.state %> y su precio es de <%= elem.price %> euros <% }) 
-          %> 
-        </small>
-    </section>
-  </section> -->
-
+ 
 </body>
 
 </html>
