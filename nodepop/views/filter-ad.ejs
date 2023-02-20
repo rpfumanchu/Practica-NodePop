@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel='stylesheet' href="/stylesheets/container.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form action="/filter" method="get">
+    <input type="submit" value="Catálogo">
+  </form>
+
+  <form action="/filter" method="get">
+    <select name="name" id="name">
+      <option value="play 5" > Play5</option>
+      <option value="nike">Zapatillas Nike</option>
+    </select>
+    <input type="submit" value="Mostrar">
+  </form>
+
+  <form action="/filter" method="get">
+    <select name="img" id="img">
+      <option value="coche" > coche</option>
+      <option value="moto">moto</option>
+    </select>
+    <input type="submit" value="Mostrar">
+  </form>
+
+  <form action="/filter" method="get">
+    <select name="fields" id="fields">
+      <option value="name" > nombre</option>
+      <option value="img" >imagen</option>
+    </select>
+    <select name="limit" id="sort">
+      <option value="2" > 2 anuncios</option>
+      <option value="4" > 4 anuncios</option>
+    </select>
+    <input type="submit" value="Mostrar">
+  </form>
+  <form action="/filter" method="get">
+    <select name="tags" id="tags">
+      <option value="lifestyle" > lifestyle</option>
+      <option value="mobile"> movil</option>
+      <option value="motor"> motor</option>
+      <option value="work">trabajo</option>
+    </select>
+    <input type="submit" value="Mostrar">
+  </form>
+  <form action="/filter" method="get">
+    <select name="state" id="state">
+      <option value="true" > Venta</option>
+      <option value="false">Compra</option>
+    </select>
+    <input type="submit" value="Mostrar">
+  </form>
+
+
+  <div class="container">
+    <% filterAds.forEach(elem=> { %>
+      <p>Articulo <%= elem.name %>
+          <%= elem.state %> y su precio es de <%= elem.price %> euros <img class="image"
+                src="../images/<%= elem.img %>.jpg" />
+              <% }) %>
+      </p>
+
+  </div>
+
+</body>
+
+</html>

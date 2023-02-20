@@ -1,56 +1,37 @@
+
+:root {
+  --main-color: #fd0000;
+  font-size: 25px;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: aqua;
+  background-color: whitesmoke;
+  margin: 0px;
+  line-height: 25px;
   background-image: url("../images/fondo.jpg");
 }
 
-a {
-  color: #00B7FF;
+body > * {
+  margin-bottom: 10px;
+  padding: 0 10px;
 }
 
-/* .webAd {
-  background-image:  url("../images/play.jpg");
-} */
-
-
-.container-wrapper {
-  
-  margin-bottom: 32px;
+h1 {
+  text-align: center;
+  padding: 0px 20px 0px 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.container-subsection {
+.title {
+  width: 100%;
   display: flex;
-  gap: 16px;
-  overflow-y: initial;
-  overflow-x: initial;
-  background-color: bisque;
-    
-}
-
-.subsection-image {
-  width: 20%;
-  margin-bottom: 8px;
-  border-radius: 24px;
-  min-width: 0;
-  background-color: #ECEFF1;
-}
-
-.subsection-title {
-  font-family: Wallie;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 20px;
-  color: #253238;
-}
-
-.subsection-subtitle {
-  font-family: Wallie;
-  font-size: .90rem;
-  line-height: 16px;
-  color: #0b0b0b;
-}
-
-.container .container-wrapper .container-subsection {
-  flex: 0 1 20%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 10px;
+  background-color: var(--main-color);
+  color: white;
+  position: static;
 }

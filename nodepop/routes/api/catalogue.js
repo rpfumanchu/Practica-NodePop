@@ -18,13 +18,15 @@ const findOut = require("../api/validations");
 //TODO crear anuncio
 
 //NOTE GET /api/catalogue
-//NOTE http://localhost:3001/api/catalogue
+// http://localhost:3001/api/catalogue
 
-router.get("/", async (req, res, next) => {
+router.get("/", async (req, res ,next) => {
   try {
     const ad = await Ad.catalogue();
 
     res.json({ results: ad });
+    res.locals.ads = ad;
+    
   } catch (error) {
     next(error);
   }
@@ -120,7 +122,7 @@ router.get("/tags", async (req, res, next) => {
 //NOTE PUT /api/catalogue/modify
 //localhost:3001/api/catalogue/modify/"_id del anuncio"
 
-http: router.put("/modify/:id", async (req, res, next) => {
+router.put("/modify/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;

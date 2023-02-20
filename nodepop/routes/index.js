@@ -1,54 +1,52 @@
-var express = require('express');
+var express = require("express");
 //const { locals } = require('../app');
 var router = express.Router();
-const Ad = require('../models/Ad');
+const Ad = require("../models/Ad");
+const { validationResult } = require("express-validator");
+const findOut = require("./api/validations");
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
+router.get("/", function (req, res, next) {
+  res.render("index");
 });
 
-
 // get /catalogue
-router.get("/catalogue", async function(req, res, next){
+router.get("/catalogue", async function (req, res, next) {
   try {
-    const ad = await Ad.find(
-
-    );
-    res.locals.ad = ad
-    res.render("web_ad");
+    const ad = await Ad.find();
+    res.locals.ads = ad;
+    res.render("catalog-ads");
   } catch (err) {
-    next(err)
-    
+    next(err);
   }
-})
+});
 
-router.get("/range/:price", async (req, res, next) => {
+router.get("/range/:price", findOut(), async (req, res, next) => {
   try {
+    validationResult(req).throw();
 
-  let price = req.params.price;
- 
-  const pricer = await Ad.priceRange(price);
-  
-  res.locals.ado = pricer;
-  res.render("ejem");
-  
+    let price = req.params.price;
+
+    const pricer = await Ad.priceRange(price);
+
+    res.locals.priceRange = pricer;
+    res.render("price-range");
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
-
+});
 
 router.get("/filter", async (req, res, next) => {
   try {
-    //validationResult(req).throw();
+    validationResult(req).throw();
 
     //NOTE filter
     const filterByName = req.query.name;
     const filterById = req.query._id;
     const filterByTags = req.query.tags;
     const filterByState = req.query.state;
-    const filterByImg = req.query.img
+    const filterByImg = req.query.img;
 
     //NOTE paginación
     const skip = req.query.skip;
@@ -61,13 +59,13 @@ router.get("/filter", async (req, res, next) => {
     const fields = req.query.fields;
 
     //NOTE Ejemplos de url para las distintas query
-    // http://localhost:3001/api/catalogue?name=nike
-    // http://localhost:3001/api/catalogue?_id=(id producto)
-    // http://localhost:3001/api/catalogue/filter?tags=motor
-    // http://localhost:3001/api/catalogue/filter?state=true
-    // http://localhost:3001/api/catalogue/filter?sort=price&fields=price
-    // http://localhost:3001/api/catalogue/filter?fields=name&limit=4&skip=3
-    // http://localhost:3001/api/catalogue/filter?fields=img&img=moto
+    // http://127.0.0.1:3001/filter?name=nike
+    // http://127.0.0.1:3001/filter?_id=(id producto)
+    // http://127.0.0.1:3001/filter?tags=motor
+    // http://127.0.0.1:3001/filter?state=true
+    // http://127.0.0.1:3001/filter?fields=img&fields=name&fields=price&sort=price
+    // http://127.0.0.1:3001/filter?limit=4&skip=3
+    // http://127.0.0.1:3001/filter?fields=img&img=moto
 
     const filter = {};
 
@@ -91,19 +89,10 @@ router.get("/filter", async (req, res, next) => {
       filter.img = filterByImg;
     }
 
-    
+    const ad = await Ad.catalogue(filter, skip, limit, sort, fields);
 
-    const ad = await Ad.catalogue(
-      filter,
-      skip,
-      limit,
-      sort,
-      fields
-    );
-
-    res.locals.ada = ad ;
-    res.render("ejem");
-
+    res.locals.filterAds = ad;
+    res.render("filter-ad");
   } catch (error) {
     next(error);
   }
@@ -122,10 +111,10 @@ router.get("/filter", async (req, res, next) => {
 //     const ad = await Ad.catalogue(filter);
 //     res.locals.ada = ad
 //     res.render("ejem");
-  
+
 //   } catch (err) {
 //     next(err)
-    
+
 //   }
 // })
 

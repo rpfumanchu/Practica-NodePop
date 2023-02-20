@@ -7,7 +7,8 @@ const findOut = () => {
     //query("id").isNumeric ().optional().withMessage("Este campo debe ser una cadena de texto"),
     query("state").isBoolean().optional().withMessage("Este campo tiene que ser true o false"),
     query("skip",).isNumeric().optional().withMessage("Este campo tiene que ser numérico"),
-    query("limit",).isNumeric().optional().withMessage("Este campo tiene que ser numérico")
+    query("limit",).isNumeric().optional().withMessage("Este campo tiene que ser numérico"),
+    query("price",).isNumeric().optional().withMessage("Este campo tiene que ser numérico")
   ]
     
 

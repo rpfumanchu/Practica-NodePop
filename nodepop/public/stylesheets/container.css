@@ -5,6 +5,13 @@ body {
   
 }
 
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -19,7 +26,7 @@ body {
 }
 
 .container p {
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -29,36 +36,3 @@ body {
   padding-top: 20px;
 }
 
-/* .container {
-  display: grid;
-  
-  grid-template-rows: 30px 80rv 30px;
-  grid-template-areas: 
-  "article article article"
-  "image image image"
-  "description description description";
-  gap: 10px;
-  margin-bottom: 12px;
-
-} */
-
-/* .article {
-  grid-area: article;
-  display: flex;
-}
-
-.image {
-  grid-area: image;
-  display: flex;
-}
-
-.description {
-  grid-area: description;
-  display: flex;
-} */
-
-/* img {
-  height: 150px;
-  width: 58%;
-  padding-top: 20px;
-} */

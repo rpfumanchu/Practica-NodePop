@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel='stylesheet' href="/stylesheets/container.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <% priceRange.forEach(elem=> { %>
+      <p>Articulo <%= elem.name %>
+          <%= elem.price %> euros
+            <img class="image" src="../images/<%= elem.img %>.jpg" />
+            <% }) %>
+      </p>
+
+  </div>
+ 
+  <form action="/range/:price" method="get">
+     <select name="rango" id="rango">
+    <option value="50-200" name = "price"> entre 50 y 200</option>
+    <option value="200-2000" name = "price">entre 200 y 2000</option>
+  </select>
+  <input type="submit" value="Mostrar">
+
+  </form>
+
+
+
+</body>
+
+</html>

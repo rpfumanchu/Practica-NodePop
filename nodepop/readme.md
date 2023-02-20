@@ -36,7 +36,7 @@ En la consola, vaya a la carpeta MongoDB y:
 
 ## API Methods
 
-### GET /api/agentes
+### GET /api/ad
 {
     "results": [
         {
