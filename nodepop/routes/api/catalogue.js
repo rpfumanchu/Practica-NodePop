@@ -24,7 +24,13 @@ const findOut = require("../api/validations");
 router.get("/", async (req, res ,next) => {
   try {
     const ad = await Ad.catalogue();
+  
+
      res.json({ results: ad });
+     res.locals.ads = ad;
+     res.render("catalog-ads");
+    
+
   } catch (error) {
     next(error);
   }

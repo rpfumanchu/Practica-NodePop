@@ -98,24 +98,24 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
    }
  });
 
- router.get("/filter", async function(req, res, next){
-   try {
-     const filterByName = req.params.name
+//  router.get("/filter", async function(req, res, next){
+//    try {
+//      const filterByName = req.params.name
 
-     const filter = {};
+//      const filter = {};
 
-     if (filterByName) {
-       filter.name = filterByName;
-     }
+//      if (filterByName) {
+//        filter.name = filterByName;
+//      }
 
-     const ad = await Ad.catalogue(filter);
-     res.locals.ada = ad
-     res.render("ejem");
+//      const ad = await Ad.catalogue(filter);
+//      res.locals.ada = ad
+//      res.render("ejem");
 
-   } catch (err) {
-     next(err)
+//    } catch (err) {
+//      next(err)
 
-   }
- })
+//    }
+//  })
 
 module.exports = router;

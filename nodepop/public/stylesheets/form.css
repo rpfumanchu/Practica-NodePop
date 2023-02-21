@@ -1,0 +1,99 @@
+
+:root {
+  --main-color: #fd0000;
+  font-size: 25px;
+}
+
+
+.form {
+  
+  display: flex;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  gap: 10px;
+  font-size: 20px;
+  border-top: solid 1px color var(--main-color);
+  background-color: whitesmoke;
+}
+
+.label {
+  padding-top: 5px;
+  gap: 10px;
+  font-size: 22px;
+
+}
+.select {
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  flex-direction: column;
+  display: flex;
+}
+
+.form input{
+  width: 6em;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.title-radio {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.container-radio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.container-radio div {
+  margin-bottom: 10px;
+}
+
+.fan {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.fan > input {
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.fan > input,
+#desc {
+  width: 350px;
+}
+
+#desc {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  height: 120px;
+  resize: non;
+}
+
+.button {
+  background-color: #578d57;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  padding: 8px 12px;
+}
