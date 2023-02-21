@@ -13,12 +13,17 @@
 <body>
 
   <form action="/filter" method="get">
+    <label for="price">por orden</label>
+    <select name="-sort" id="sort">
+      <option value="price">precio</option>
+    </select>
+    
     <input type="submit" value="Catálogo">
   </form>
 
   <form action="/filter" method="get">
     <select name="name" id="name">
-      <option value="play 5" > Play5</option>
+      <option value="play 5"> Play5</option>
       <option value="nike">Zapatillas Nike</option>
     </select>
     <input type="submit" value="Mostrar">
@@ -26,7 +31,7 @@
 
   <form action="/filter" method="get">
     <select name="img" id="img">
-      <option value="coche" > coche</option>
+      <option value="coche"> coche</option>
       <option value="moto">moto</option>
     </select>
     <input type="submit" value="Mostrar">
@@ -34,18 +39,18 @@
 
   <form action="/filter" method="get">
     <select name="fields" id="fields">
-      <option value="name" > nombre</option>
-      <option value="img" >imagen</option>
+      <option value="name"> nombre</option>
+      <option value="img">imagen</option>
     </select>
     <select name="limit" id="sort">
-      <option value="2" > 2 anuncios</option>
-      <option value="4" > 4 anuncios</option>
+      <option value="2"> 2 anuncios</option>
+      <option value="4"> 4 anuncios</option>
     </select>
     <input type="submit" value="Mostrar">
   </form>
   <form action="/filter" method="get">
     <select name="tags" id="tags">
-      <option value="lifestyle" > lifestyle</option>
+      <option value="lifestyle"> lifestyle</option>
       <option value="mobile"> movil</option>
       <option value="motor"> motor</option>
       <option value="work">trabajo</option>
@@ -54,7 +59,7 @@
   </form>
   <form action="/filter" method="get">
     <select name="state" id="state">
-      <option value="true" > Venta</option>
+      <option value="true"> Venta</option>
       <option value="false">Compra</option>
     </select>
     <input type="submit" value="Mostrar">

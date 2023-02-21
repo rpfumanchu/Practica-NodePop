@@ -1,4 +1,4 @@
-const { json } = require("express");
+
 const express = require("express");
 const router = express.Router();
 const { validationResult } = require("express-validator");
@@ -18,15 +18,13 @@ const findOut = require("../api/validations");
 //TODO crear anuncio
 
 //NOTE GET /api/catalogue
-// http://localhost:3001/api/catalogue
+// http://127.0.0.1:3001/api/catalogue
+// http://127.0.0.1:3001/api/catalogue/catalogue
 
 router.get("/", async (req, res ,next) => {
   try {
     const ad = await Ad.catalogue();
-
-    res.json({ results: ad });
-    res.locals.ads = ad;
-    
+     res.json({ results: ad });
   } catch (error) {
     next(error);
   }
