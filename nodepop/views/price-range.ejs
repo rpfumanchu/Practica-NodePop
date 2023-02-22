@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/reset.css">
-  <link rel='stylesheet' href="/stylesheets/container.css">
+  <link rel='stylesheet' href="/stylesheets/form.css">
+
   <title>Document</title>
 </head>
 
 <body>
+
+  <% include title.ejs %>
   <form action="/range/:price" method="get">
      <select name="rango" id="rango">
     <option value="50-200" name = "price"> entre 50 y 200</option>
@@ -20,8 +22,8 @@
   
 
   </form>
-  <ul>
-    <li>
+  <ul class="form">
+    <li class="">
       <a href="http://127.0.0.1:3001/range/559-800" target="_blank" rel="noreferrer noopener">precio entre 559 y 800 euros </a>
     </li>
     <li>

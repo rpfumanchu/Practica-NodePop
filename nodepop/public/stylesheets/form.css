@@ -5,15 +5,16 @@
 }
 
 
+
 .form {
   
   display: flex;
   margin-bottom: 10px;
-  padding-left: 10px;
+  padding-left: 30px;
   gap: 10px;
   font-size: 20px;
   border-top: solid 1px color var(--main-color);
-  background-color: whitesmoke;
+  
 }
 
 .label {

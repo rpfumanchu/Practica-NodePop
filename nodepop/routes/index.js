@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
 });
 
 // get /catalogue
- router.get("/catalogue", async function (req, res, next) {
+ router.get("/catalogue", findOut(), async function (req, res, next) {
    try {
      const ad = await Ad.find();
      res.locals.ads = ad;
@@ -37,7 +37,7 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
   }
 });
 
- router.get("/filter", async (req, res, next) => {
+ router.get("/filter", findOut(), async (req, res, next) => {
    try {
      validationResult(req).throw();
 
@@ -98,24 +98,22 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
    }
  });
 
-//  router.get("/filter", async function(req, res, next){
-//    try {
-//      const filterByName = req.params.name
+//NOTE GET /tags
+// tipos de tags
+// http://localhost:3001/tags?tag=tags
+router.get("/tags", async (req, res, next) => {
+  try {
+    const tags = req.query.tags;
 
-//      const filter = {};
+    const ad = await Ad.distinctTag(tags);
 
-//      if (filterByName) {
-//        filter.name = filterByName;
-//      }
+    res.locals.tags = ad
+    res.render("tags")
+  } catch (error) {
+    next(error);
+  }
+});
 
-//      const ad = await Ad.catalogue(filter);
-//      res.locals.ada = ad
-//      res.render("ejem");
 
-//    } catch (err) {
-//      next(err)
-
-//    }
-//  })
 
 module.exports = router;

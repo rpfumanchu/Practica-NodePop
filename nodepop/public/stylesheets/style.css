@@ -1,37 +1,7 @@
 
-:root {
-  --main-color: #fd0000;
-  font-size: 25px;
-}
 
 body {
   background-color: whitesmoke;
-  margin: 0px;
-  line-height: 25px;
+  
   background-image: url("../images/fondo.jpg");
-}
-
-body > * {
-  margin-bottom: 10px;
-  padding: 0 10px;
-}
-
-h1 {
-  text-align: center;
-  padding: 0px 20px 0px 20px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.title {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0px 10px 0px;
-  margin-bottom: 10px;
-  background-color: var(--main-color);
-  color: white;
-  position: static;
 }

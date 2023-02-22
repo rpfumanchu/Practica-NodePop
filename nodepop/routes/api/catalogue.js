@@ -17,28 +17,10 @@ const findOut = require("../api/validations");
 //TODO modificar anuncio
 //TODO crear anuncio
 
+
 //NOTE GET /api/catalogue
-// http://127.0.0.1:3001/api/catalogue
-// http://127.0.0.1:3001/api/catalogue/catalogue
 
-router.get("/", async (req, res ,next) => {
-  try {
-    const ad = await Ad.catalogue();
-  
-
-     res.json({ results: ad });
-     res.locals.ads = ad;
-     res.render("catalog-ads");
-    
-
-  } catch (error) {
-    next(error);
-  }
-});
-
-//NOTE GET /api/catalogue/filter
-
-router.get("/filter", findOut(), async (req, res, next) => {
+router.get("/", findOut(), async (req, res, next) => {
   try {
     validationResult(req).throw();
 
@@ -60,13 +42,14 @@ router.get("/filter", findOut(), async (req, res, next) => {
     const fields = req.query.fields;
 
     //NOTE Ejemplos de url para las distintas query
+    // http://127.0.0.1:3001/api/catalogue
     // http://localhost:3001/api/catalogue?name=nike
     // http://localhost:3001/api/catalogue?_id=(id producto)
-    // http://localhost:3001/api/catalogue/filter?tags=motor
-    // http://localhost:3001/api/catalogue/filter?state=true
-    // http://localhost:3001/api/catalogue/filter?sort=price&fields=price
-    // http://localhost:3001/api/catalogue/filter?fields=name&limit=4&skip=3
-    // http://localhost:3001/api/catalogue/filter?fields=img&img=moto
+    // http://localhost:3001/api/catalogue?tags=motor
+    // http://localhost:3001/api/catalogue?state=true
+    // http://localhost:3001/api/catalogue?sort=price&fields=price
+    // http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
+    // http://localhost:3001/api/catalogue?fields=img&img=moto
 
     const filter = {};
 
@@ -89,8 +72,6 @@ router.get("/filter", findOut(), async (req, res, next) => {
     if (filterByImg) {
       filter.img = filterByImg;
     }
-
-    
 
     const ad = await Ad.catalogue(
       filter,
@@ -126,7 +107,7 @@ router.get("/tags", async (req, res, next) => {
 //NOTE PUT /api/catalogue/modify
 //localhost:3001/api/catalogue/modify/"_id del anuncio"
 
-router.put("/modify/:id", async (req, res, next) => {
+router.put("/modify/:id", findOut(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
@@ -145,7 +126,7 @@ router.put("/modify/:id", async (req, res, next) => {
 
 //NOTE POST /api/catalogue/create (body)
 //http://localhost:3001/api/catalogue/create
-router.post("/create", async (req, res, next) => {
+router.post("/create", findOut(), async (req, res, next) => {
   try {
     
     const adData = req.body;
@@ -183,7 +164,7 @@ router.delete('/delete/:id', async (req, res, next) => {
 
 //NOTE GET /api/catalogue/range/
 // http://localhost:3001/api/catalogue/range/50-800
-router.get("/range/:price", async (req, res, next) => {
+router.get("/range/:price", findOut(), async (req, res, next) => {
   try {
 
   let price = req.params.price;

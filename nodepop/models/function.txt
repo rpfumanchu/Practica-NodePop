@@ -1,0 +1,43 @@
+"use strict"
+const Ad = require("../models/Ad");
+const express = require("express");
+const mongoose = require('mongoose');
+const router = express.Router();
+const { query,validationResult } = require("express-validator");
+
+async function catalogueAd(req, res ,next) {
+  try {
+    const ad = await Ad.catalogue();
+    res.json({ results: ad });
+    
+  } catch (error) {
+    next(error)
+  }
+
+}
+
+async function catalogueAd(req, res ,next) {
+  try {
+    const ad = await Ad.catalogue();
+
+    router.get("/catalogue", (req, res ,next) => {
+
+      res.json({ results: ad });
+      
+    });
+
+    router.get("/", (req, res ,next) => {
+
+      res.locals.ads = ad
+      res.render("catalog-ads");
+      
+    })
+
+  } catch (error) {
+    next(error)
+  }
+
+}
+
+
+module.exports = catalogueAd;
