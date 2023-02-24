@@ -40,4 +40,29 @@ async function catalogueAd(req, res ,next) {
 }
 
 
+<div class="container">
+    <% filterAds.forEach(elem => { %>
+      <% if (filterAds.length > 0) { %>
+        Articulo <%= elem.name %> <%= elem.state %> y su precio es de <%= elem.price %> euros  <img class="image"
+                src="../images/<%= elem.img %>.jpg" />
+     <% } else{ %> nohay coincidencias 
+    <% } %>
+      <% }) %>
+  </div>
+
+
+
+<div class="container">
+    <% filterAds.forEach(elem=> { %> 
+      
+    <p>Articulo <%= elem.name %> 
+          <%= elem.state %> y su precio es de <%= elem.price %> euros <img class="image"
+                src="../images/<%= elem.img %>.jpg" />
+              <% }) %>
+      </p>
+
+  </div>
+
+
+
 module.exports = catalogueAd;

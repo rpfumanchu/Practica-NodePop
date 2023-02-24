@@ -70,7 +70,7 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
      const filter = {};
 
      if (filterByName) {
-       filter.name = filterByName;
+       filter.name = new RegExp('^' + filterByName, "i");
      }
 
      if (filterById) {
@@ -86,7 +86,7 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
      }
 
      if (filterByImg) {
-       filter.img = filterByImg;
+       filter.img = filterByImg.toLowerCase();
      }
 
      const ad = await Ad.catalogue(filter, skip, limit, sort, fields);

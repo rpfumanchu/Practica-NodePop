@@ -12,9 +12,22 @@
   margin-bottom: 10px;
   padding-left: 30px;
   gap: 10px;
-  font-size: 20px;
+  font-size: 80px;
   border-top: solid 1px color var(--main-color);
   
+}
+.form button {
+  
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #578d57;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  padding: 8px 12px;
+  font-size: 20px;
 }
 
 .label {
@@ -43,11 +56,6 @@
   display: flex;
 }
 
-.form input{
-  width: 6em;
-  border-radius: 5px;
-  font-size: 17px;
-}
 
 .title-radio {
   display: flex;
@@ -91,10 +99,3 @@
   resize: non;
 }
 
-.button {
-  background-color: #578d57;
-  border-radius: 5px;
-  color: white;
-  border: 0;
-  padding: 8px 12px;
-}

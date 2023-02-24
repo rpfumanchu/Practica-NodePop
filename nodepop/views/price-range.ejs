@@ -13,8 +13,8 @@
 <body>
 
   <% include title.ejs %>
-  <form action="/range/:price" method="get">
-     <select name="rango" id="rango">
+  <form action="/range/" method="get">
+     <select  id="rango">
     <option value="50-200" name = "price"> entre 50 y 200</option>
     <option value="200-2000" name = "price">entre 200 y 2000</option>
   </select>
@@ -22,7 +22,7 @@
   
 
   </form>
-  <ul class="form">
+  <ul class="label">
     <li class="">
       <a href="http://127.0.0.1:3001/range/559-800" target="_blank" rel="noreferrer noopener">precio entre 559 y 800 euros </a>
     </li>

@@ -43,7 +43,7 @@ router.get("/", findOut(), async (req, res, next) => {
 
     //NOTE Ejemplos de url para las distintas query
     // http://127.0.0.1:3001/api/catalogue
-    // http://localhost:3001/api/catalogue?name=nike
+    // http://localhost:3001/api/catalogu?name=nikaaaaaa
     // http://localhost:3001/api/catalogue?_id=(id producto)
     // http://localhost:3001/api/catalogue?tags=motor
     // http://localhost:3001/api/catalogue?state=true
@@ -53,10 +53,10 @@ router.get("/", findOut(), async (req, res, next) => {
 
     const filter = {};
 
-    if (filterByName) {
-      filter.name = filterByName;
+    if (filterByName ) {
+      filter.name = new RegExp('^' + filterByName, "i");
     }
-
+    
     if (filterById) {
       filter._id = filterById;
     }

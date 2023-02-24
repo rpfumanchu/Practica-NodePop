@@ -14,12 +14,23 @@
   <% include title.ejs %>
 
   <form class="form" action="/filter" method="get">
+    <input class="button" type="submit" value="Catálogo">
+    <label class="label" for="limit" ></label>
+    <button class="button" id="limit" name="limit" value="2">2 anuncios </button>
+    <label class="label" for="limit2" ></label>
+    <button class="button"  id="limit2" name="limit" value="4" >4 anuncios</button>
+    <label class="label" for="skip" ></label>
+    <button class="button" id="skip" name="skip" value="4">Skip 4</button>
+  
+  </form>
+
+  <form class="form" action="/filter" method="get">
     <label class="label">por orden</label>
     <select class="select" name="sort" id="sort">
-      <option value="price">precio</option>
       <option value="name"> Nombre </option>
+      <option value="price">precio</option>
     </select>
-    <input class="button" type="submit" value="Catálogo">
+    <input class="button" type="submit" value="Mostrar">
   </form>
 
   <form class="form" action="/filter" method="get">
@@ -59,15 +70,11 @@
   </form>
 
   <form class="form" action="/filter" method="get">
-    <label class="label"> Selecciona un campo y limite de anuncios</label>
+    <label class="label"> Selecciona un campo </label>
     <select class="select" name="fields" id="fields">
       <option value="img"> Imagen </option>
       <option value="price"> Precio </option>
       <option value="name"> Nombre </option>
-    </select>
-    <select class="select" name="limit" id="limit">
-      <option value="2"> 2 anuncios</option>
-      <option value="4"> 4 anuncios</option>
     </select>
     <label class="label"></label>
     <input class="button" type="submit" value="Mostrar">
@@ -100,9 +107,10 @@
     </select>
     <input class="button" type="submit" value="Mostrar">
   </form>
-
+  
   <div class="container">
     <% filterAds.forEach(elem=> { %> 
+      
     <p>Articulo <%= elem.name %> 
           <%= elem.state %> y su precio es de <%= elem.price %> euros <img class="image"
                 src="../images/<%= elem.img %>.jpg" />
@@ -110,6 +118,8 @@
       </p>
 
   </div>
+
+  
 
 </body>
 
