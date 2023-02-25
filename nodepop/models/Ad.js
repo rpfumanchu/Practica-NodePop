@@ -31,8 +31,10 @@ AdSchema.statics.distinctTag = function() {
 
 //DONE Método estático para aplicar un rango de precio al anúncio
 AdSchema.statics.priceRange = function(price) {
-  
-  const newPrice = price.split("-")
+  if(!price.includes("-")){
+// Filtrar directamente por el precio exacto
+  } else {
+const newPrice = price.split("-")
   const price1 = newPrice[0]
   const price2 = newPrice[1]
   if (price1 && price2) {
@@ -50,6 +52,8 @@ AdSchema.statics.priceRange = function(price) {
     return query.exec();
 
   } 
+  }
+  
   //price = price.toString()
  
 }
@@ -60,7 +64,9 @@ AdSchema.statics.price = function(price) {
   return query.exec();
 }
 
-
+AdSchema.virtual("stateText").get(función() {
+ return this.state ? "Si" : "No";
+});
 
 // crear el modelo de Ad
 const Ad = mongoose.model('Ad', AdSchema);
