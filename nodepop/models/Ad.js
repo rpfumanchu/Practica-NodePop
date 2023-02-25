@@ -64,7 +64,9 @@ AdSchema.statics.price = function(price) {
   return query.exec();
 }
 
-
+AdSchema.virtual("stateText").get(función() {
+ return this.state ? "Si" : "No";
+});
 
 // crear el modelo de Ad
 const Ad = mongoose.model('Ad', AdSchema);
