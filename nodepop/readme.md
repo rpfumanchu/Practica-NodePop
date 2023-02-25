@@ -23,16 +23,21 @@ npm run dev
 Aplicación creada con:
 
 ```sh
-npx express-generator nodeapp --ejs
+npx express-generator nodepop --ejs
 ```
 
 ## Inicie un servidor MongoDB en Macos o Linux
+https://www.mongodb.com/try/download/shell
 
 En la consola, vaya a la carpeta MongoDB y:
 
 ```sh
 ./bin/mongod --dbpath ./data
 ```
+## Windows
+- Descargar mongosh-1.7.1-win32-x64
+https://downloads.mongodb.com/compass/mongosh-1.7.1-win32-x64.zip
+- Ejecute mongosh.exe
 
 ## API Methods
 
@@ -95,6 +100,8 @@ localhost:3001/api/catalogue/modify/"_id del anuncio"
 ```sh
 //http://localhost:3001/api/catalogue/delete/ "_id del anuncio"
 ```
+
+# Pagina frontend simple
 
 
 
