@@ -69,9 +69,14 @@ http://localhost:3001/api/catalogue/tags?tag=tags
 // http://localhost:3001/api/catalogue/range/
 #### Método para buscar por rango de precio.
 - -50 seria <= 50
+http://localhost:3001/api/catalogue/range/-200
 - 50- seria >= 50
+http://localhost:3001/api/catalogue/range/9000-
 - 50-100 seria rango de precios entre 50 y 100
+http://localhost:3001/api/catalogue/range/50-800
 - 50 seria anuncio con precio exacto
+http://localhost:3001/api/catalogue/price/659
+
 
 ## Metodos PUT y POST se pueden comprobar mediante Postman
 https://www.postman.com/downloads/

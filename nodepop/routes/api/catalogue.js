@@ -123,5 +123,19 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
   }
 })
 
+router.get("/price/:price", findOut(), async (req, res, next) => {
+  try {
+    validationResult(req).throw();
+
+    let price = req.params.price;
+
+    const pricer = await Ad.price(price);
+
+    res.json({ results: pricer });
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = router;
