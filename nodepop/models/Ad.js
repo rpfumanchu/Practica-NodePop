@@ -5,7 +5,7 @@ const AdSchema = mongoose.Schema({
   name: String,
   state: Boolean,
   price: Number,
-  tags: String,
+  tags: Array,
   img: String
 }, {
   // collection: 'ad'
@@ -31,16 +31,36 @@ AdSchema.statics.distinctTag = function() {
 
 //DONE Método estático para aplicar un rango de precio al anúncio
 AdSchema.statics.priceRange = function(price) {
-
-  //price = price.toString()
+  
   const newPrice = price.split("-")
   const price1 = newPrice[0]
   const price2 = newPrice[1]
+  if (price1 && price2) {
+
+    const query = Ad.find({price:{$gte : price1, $lte : price2}})
+    console.log(price1,price2)
+    return query.exec();
+
+  }else if(price1) {
+    const query = Ad.find({price:{$gte : price1}})
+    return query.exec();
+
+  }else if(price2) {
+    const query = Ad.find({price:{$lte : price2}})
+    return query.exec();
+
+  } 
+  //price = price.toString()
  
-  const query = Ad.find({price:{$gte : price1, $lte : price2}})
-  console.log(price1,price2)
+}
+
+AdSchema.statics.price = function(price) {
+  const query = Ad.find({price:  price})
+  console.log(price)
   return query.exec();
 }
+
+
 
 // crear el modelo de Ad
 const Ad = mongoose.model('Ad', AdSchema);

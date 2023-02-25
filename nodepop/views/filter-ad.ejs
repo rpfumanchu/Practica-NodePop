@@ -110,16 +110,19 @@
   
   <div class="container">
     <% filterAds.forEach(elem=> { %> 
-      
-    <p>Articulo <%= elem.name %> 
-          <%= elem.state %> y su precio es de <%= elem.price %> euros <img class="image"
-                src="../images/<%= elem.img %>.jpg" />
-              <% }) %>
-      </p>
-
+      <% if(elem.name && elem.price && elem.img) {%>
+        <p>
+          Articulo <%= elem.name %> <%= elem.state %> y su precio es de <%= elem.price %> euros <img class="image" src="../images/<%= elem.img %>.jpg" /> <%= elem.tags %>
+        </p>
+      <% } else if(elem.name) { %>
+        <p>Articulo <%= elem.name %> </p>
+      <% } else if(elem.price){ %>
+        <p>Su precio es de <%= elem.price %> euros</p>
+      <% } else { %>
+        <img class="image" src="../images/<%= elem.img %>.jpg" />
+      <% } %>
+    <% }) %>
   </div>
-
-  
 
 </body>
 

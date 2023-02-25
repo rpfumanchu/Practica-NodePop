@@ -44,7 +44,7 @@ async function initAd() {
       name: "silla",
       state: false,
       price: 400,
-      tags: "work",
+      tags: ["work", "lifestyle"],
       img: "silla",
     },
     {
@@ -58,7 +58,7 @@ async function initAd() {
       name: "pc",
       state: true,
       price: 1500,
-      tags: "lifestyle",
+      tags: ["work", "lifestyle"],
       img: "pc",
     },
     {
