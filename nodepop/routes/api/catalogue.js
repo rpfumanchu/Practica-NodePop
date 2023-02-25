@@ -20,6 +20,16 @@ const { validationResult } = require("express-validator");
 
 
 //NOTE GET /api/catalogue
+//NOTE Ejemplos de url para las distintas query
+  // http://127.0.0.1:3001/api/catalogue
+  // http://localhost:3001/api/catalogu?name=nikaaaaaa
+  // http://localhost:3001/api/catalogue?_id=(id producto)
+  // http://localhost:3001/api/catalogue?tags=motor
+  // http://localhost:3001/api/catalogue?state=true
+  // http://localhost:3001/api/catalogue?sort=price&fields=price
+  // http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
+  // http://localhost:3001/api/catalogue?fields=img&img=moto
+
 
 router.get("/", findOut(), async (req, res, next) => {
   try {
