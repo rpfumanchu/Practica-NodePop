@@ -1,6 +1,6 @@
 # NodePop
 
-Instala las dependencias con
+Instala las dependencias con:
 
 ```sh
 npm install
@@ -43,7 +43,7 @@ https://downloads.mongodb.com/compass/mongosh-1.7.1-win32-x64.zip
 
 ### GET /api/catalogue
 http://127.0.0.1:3001/api/catalogue
-#### Método que perimite filtrar por los distintos campos que contiene un anuncio. Se devuelve en formato json
+#### Método que permite filtrar por los distintos campos que contiene un anuncio. Se devuelve en formato json
 - "results": [
   - {
   - "_id": "63f9152449b6e321793fd867",
@@ -63,7 +63,7 @@ http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
 
 ### GET /api/catalogue/tags
 http://localhost:3001/api/catalogue/tags?tag=tags
-#### Método que me devuelve los distintos tag que tienen los anuncios.
+#### Método que devuelve los distintos tag que tienen los anuncios.
 
 ### GET /api/catalogue/range/
 // http://localhost:3001/api/catalogue/range/659
@@ -93,7 +93,7 @@ localhost:3001/api/catalogue/modify/"_id del anuncio"
 ```
 
 #### Método que permite crear un anuncio
-#### El schena del anuncio esta definido de la siguiente forma.
+#### El Schena del anuncio esta definido de la siguiente forma.
   - name: String,
   - state: Boolean,
   - price: Number,
@@ -106,11 +106,11 @@ localhost:3001/api/catalogue/modify/"_id del anuncio"
 //http://localhost:3001/api/catalogue/delete/ "_id del anuncio"
 ```
 
-# Pagina frontend simple
+# Página frontend simple
 ## Cuenta con una página frontend simple.
 http://127.1.1.0:3001/
-## con tres links:
-### Nos permite gestionar filtrados y busquedas anteriormente descritos.
+## Con tres links:
+### Nos permite gestionar filtros y búsquedas anteriormente descritas.
 http://127.0.0.1:3001/filter
 ### Crear un anuncio.
 http://127.1.1.0:3001/create

@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Ad = require("../../models/Ad");
 const findOut = require("../api/validations");
-const getCatalogue = require("../../lib/catalogue");
+const getCatalogue = require("../../lib/filter");
 const { validationResult } = require("express-validator");
 
 //NOTE CRUD: create, read, update, delete

@@ -3,7 +3,7 @@ var router = express.Router();
 const Ad = require("../models/Ad");
 const { validationResult } = require("express-validator");
 const findOut = require("./api/validations");
-const getCatalogue = require("../lib/catalogue");
+const getCatalogue = require("../lib/filter");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {

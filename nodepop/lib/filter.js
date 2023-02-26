@@ -1,6 +1,8 @@
 const Ad = require("../models/Ad");
 const { validationResult } = require("express-validator");
 
+
+// DONE funcion que ne sirve para filtrar por los disitintos campos
 async function getCatalogue(req) {
 
     validationResult(req).throw();
