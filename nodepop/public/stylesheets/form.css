@@ -6,9 +6,11 @@
 
 
 body  {
+  position: relative;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
-
   margin-bottom: 10px;
+  padding-bottom: 3.5em;
+  min-height: 100vh;
 }
 
 
@@ -94,7 +96,7 @@ body  {
 
 .links {
   text-align: center;
-  padding: 8px ;
+  padding: 1em ;
   margin-bottom: 8px;
   font-size: 22px;
   text-decoration: none;
@@ -130,16 +132,20 @@ body  {
 
 
 .footer {
-  display: block;
+  
+  width: 100%;
   background-color: var(--main-color);
   color: white;
   margin-bottom: 0px;
   padding: 10px;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer .p {
   font-size: 20px;
   margin-bottom: 10px;
+  align-self:flex-end;
 }
 
 
