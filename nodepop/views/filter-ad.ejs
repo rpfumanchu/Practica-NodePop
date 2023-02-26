@@ -139,7 +139,7 @@
 
   <div class="container">
     <% filterAds.forEach(elem=> { %> <% if(elem.name && elem.price && elem.img) {%>
-        <p>
+        <p class="ad">
           Articulo <%= elem.name %>
             <%= elem.adStatus %> y su precio es de <%= elem.price %> euros
                 <img class="image" src="../images/<%= elem.img %>.jpg" />

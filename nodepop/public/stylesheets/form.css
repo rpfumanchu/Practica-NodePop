@@ -8,6 +8,7 @@
 body  {
   position: relative;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-left: 3px;
   margin-bottom: 10px;
   padding-bottom: 3.5em;
   min-height: 100vh;
@@ -52,6 +53,11 @@ body  {
   
 }
 
+.ad {
+  padding: 20px 0px 20px 0px;
+  border: 2px solid var(--main-color);
+}
+
 .container p {
   font-size: 20px;
   text-align: center;
@@ -64,7 +70,6 @@ body  {
 }
 
 .form {
-  
   display: flex;
   margin-bottom: 10px;
   padding-left: 30px;
@@ -119,7 +124,7 @@ body  {
 .span {
   background-color: #74e17fac ;
   border-radius: 6px;
-  padding: 2px 5px 2px 5px;
+  padding: 2px 5px 0px 5px;
 }
 .select {
   display: flex;
