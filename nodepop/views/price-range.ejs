@@ -5,66 +5,73 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/reset.css">
   <link rel='stylesheet' href="/stylesheets/form.css">
 
-  <title><%= title %></title>
+  <title>
+    <%= title %>
+  </title>
 </head>
 
 <body>
 
   <% include title.ejs %>
- 
+
   <div class="form">
     <ul class="label">
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/559-800"  rel="noreferrer noopener">precio entre 559 y 800 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/559-800" rel="noreferrer noopener">precio entre 559 y 800
+          euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/5000-20000"  rel="noreferrer noopener">precio entre 5000 y 20000 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/5000-20000" rel="noreferrer noopener">precio entre 5000 y
+          20000 euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/-200" rel="noreferrer noopener">precio menor o igual a 200 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/-200" rel="noreferrer noopener">precio menor o igual a
+          200 euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/-5000"  rel="noreferrer noopener">precio menor o igual a 50000  euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/-5000" rel="noreferrer noopener">precio menor o igual a
+          50000 euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/15000-"  rel="noreferrer noopener">precio mayor o igual a 15000 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/15000-" rel="noreferrer noopener">precio mayor o igual a
+          15000 euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/5000-"  rel="noreferrer noopener">precio mayor o igual a 5000 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/5000-" rel="noreferrer noopener">precio mayor o igual a
+          5000 euros </a>
       </li>
       <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/659"  rel="noreferrer noopener">precio exacto de 659 euros </a>
+        <a class="links-a" href="http://127.0.0.1:3001/range/659" rel="noreferrer noopener">precio exacto de 659 euros
+        </a>
       </li>
     </ul>
-
   </div>
-  <div class="form"><p></p>
-    <ul>
-      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-
-    </ul>
-  </div>
-  
 
   <div class="container">
     <% priceRange.forEach(elem=> { %>
       <p>Articulo <%= elem.name %>
-          <%= elem.price %> euros
-            <img class="image" src="../images/<%= elem.img %>.jpg" />
-            <% }) %>
+          <%= elem.adStatus %> y su precio es de
+            <%= elem.price %> euros
+              <img class="image" src="../images/<%= elem.img %>.jpg" /> <span class="span">
+                <%= elem.tags %>
+              </span>
+              <% }) %>
       </p>
-
   </div>
 
-  
-  
-  
+  <div class="form">
+    <p></p>
+    <ul>
+      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
+    </ul>
+  </div>
 
-
+  <% include footer.ejs %>
 
 </body>
 

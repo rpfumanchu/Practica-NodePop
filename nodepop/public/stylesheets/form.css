@@ -5,6 +5,61 @@
 }
 
 
+body  {
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  margin-bottom: 10px;
+}
+
+
+
+.p {
+  padding: 0px 0px 15px 0px;
+  text-align: center;
+  font-size: 25px;
+
+}
+
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 35px;
+  font-size: 35px;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 10px;
+  background-color: var(--main-color);
+  color: white;
+  
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 15px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  margin-bottom: 12px;
+  background-color: rgba(245, 245, 245, 0.356);
+  
+}
+
+.container p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.container img {
+  height: 150px;
+  width: 50%;
+  padding-top: 20px;
+}
 
 .form {
   
@@ -59,8 +114,6 @@
   background-color: #557ae1;
 }
 
-
-
 .span {
   background-color: #74e17fac ;
   border-radius: 6px;
@@ -72,60 +125,22 @@
   border-radius: 5px;
   font-size: 17px;
 }
-.container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  font-size: 15px;
-  margin-bottom: 12px;
+
+
+
+
+.footer {
+  display: block;
+  background-color: var(--main-color);
+  color: white;
+  margin-bottom: 0px;
+  padding: 10px;
 }
 
-.form-group {
-  flex-direction: column;
-  display: flex;
-}
-
-
-.title-radio {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding-bottom: 15px;
-}
-
-.container-radio {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.footer .p {
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
-.container-radio div {
-  margin-bottom: 10px;
-}
 
-.fan {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-
-.fan > input {
-  margin-left: 20px;
-  margin-top: 4px;
-  margin-bottom: 10px;
-}
-
-.fan > input,
-#desc {
-  width: 350px;
-}
-
-#desc {
-  margin-left: 20px;
-  margin-bottom: 10px;
-  height: 120px;
-  resize: non;
-}
 

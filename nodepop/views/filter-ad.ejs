@@ -1,161 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/form.css" />
 
-    <title><%= title %></title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel="stylesheet" href="/stylesheets/form.css" />
 
-  <body>
-    <% include title.ejs %>
 
-    <form class="form" action="/filter" method="get">
-      <input class="button" type="submit" value="Catálogo" />
-      <label class="label" for="limit"></label>
-      <button class="button" id="limit" name="limit" value="2">
-        2 anuncios
-      </button>
-      <label class="label" for="limit2"></label>
-      <button class="button" id="limit2" name="limit" value="4">
-        4 anuncios
-      </button>
-      <label class="label" for="skip"></label>
-      <button class="button" id="skip" name="skip" value="4">Skip 4</button>
-    </form>
+  <title>
+    <%= title %>
+  </title>
+</head>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label">por orden</label>
-      <select class="select" name="sort" id="sort">
-        <option value="">Elige</option>
-        <option value="name">Nombre</option>
-        <option value="price">precio</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+<body>
+  <% include title.ejs %>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label">Selecciona un artículo</label>
-      <select class="select" name="name" id="name">
-        <option value="">Elige</option>
-        <option value="play 5">Play5</option>
-        <option value="nike">Zapatillas Nike</option>
-        <option value="xbox">Xbox</option>
-        <option value="silla">Silla</option>
-        <option value="reloj">Reloj</option>
-        <option value="pc">Pc</option>
-        <option value="apple">iPhone 11</option>
-        <option value="oppo">Oppo</option>
-        <option value="yamaha R7">Yamaha R7</option>
-        <option value="escritorio">Escritorio</option>
-        <option value="renault">Renault</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label">Selecciona una imagen</label>
-      <select class="select" name="img" id="img">
-        <option value="">Elige</option>
-        <option value="coche">Coche</option>
-        <option value="zapas">Zapatillas Nike</option>
-        <option value="play">Play 5</option>
-        <option value="xbox">Xbox</option>
-        <option value="silla">Silla</option>
-        <option value="reloj">Reloj</option>
-        <option value="pc">Pc</option>
-        <option value="movil1">iPhone</option>
-        <option value="movil">Opoo</option>
-        <option value="moto">Yamaha R7</option>
-        <option value="mesa">Escritorio</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+  <form class="form" action="/filter" method="get">
+    <input class="button" type="submit" value="Catálogo" />
+    <label class="label" for="limit"></label>
+    <button class="button" id="limit" name="limit" value="2">
+      2 anuncios
+    </button>
+    <label class="label" for="limit2"></label>
+    <button class="button" id="limit2" name="limit" value="4">
+      4 anuncios
+    </button>
+    <label class="label" for="skip"></label>
+    <button class="button" id="skip" name="skip" value="4">Skip 4</button>
+  </form>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label"> Selecciona un campo </label>
-      <select class="select" name="fields" id="fields">
-        <option value="">Elige</option>
-        <option value="img">Imagen</option>
-        <option value="price">Precio</option>
-        <option value="name">Nombre</option>
-      </select>
+  <form class="form" action="/filter" method="get">
+    <label class="label">por orden</label>
+    <select class="select" name="sort" id="sort">
+      <option value="">Elige</option>
+      <option value="name">Nombre</option>
+      <option value="price">precio</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-      <label class="label">Selecciona un artículo</label>
-      <select class="select" name="name" id="name">
-        <option value="">Elige</option>
-        <option value="play 5">Play5</option>
-        <option value="nike">Zapatillas Nike</option>
-        <option value="xbox">Xbox</option>
-        <option value="silla">Silla</option>
-        <option value="reloj">Reloj</option>
-        <option value="pc">Pc</option>
-        <option value="apple">iPhone 11</option>
-        <option value="oppo">Oppo</option>
-        <option value="yamaha R7">Yamaha R7</option>
-        <option value="escritorio">Escritorio</option>
-        <option value="renault">Renault</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+  <form class="form" action="/filter" method="get">
+    <label class="label">Selecciona un artículo</label>
+    <select class="select" name="name" id="name">
+      <option value="">Elige</option>
+      <option value="play 5">Play5</option>
+      <option value="nike">Zapatillas Nike</option>
+      <option value="xbox">Xbox</option>
+      <option value="silla">Silla</option>
+      <option value="reloj">Reloj</option>
+      <option value="pc">Pc</option>
+      <option value="apple">iPhone 11</option>
+      <option value="oppo">Oppo</option>
+      <option value="yamaha R7">Yamaha R7</option>
+      <option value="escritorio">Escritorio</option>
+      <option value="renault">Renault</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label"> Selecciona un tags</label>
-      <select class="select" name="tags" id="tags">
-        <option value="">Elige</option>
-        <option value="lifestyle">lifestyle</option>
-        <option value="mobile">movil</option>
-        <option value="motor">motor</option>
-        <option value="work">trabajo</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+  <form class="form" action="/filter" method="get">
+    <label class="label">Selecciona una imagen</label>
+    <select class="select" name="img" id="img">
+      <option value="">Elige</option>
+      <option value="coche">Coche</option>
+      <option value="zapas">Zapatillas Nike</option>
+      <option value="play">Play 5</option>
+      <option value="xbox">Xbox</option>
+      <option value="silla">Silla</option>
+      <option value="reloj">Reloj</option>
+      <option value="pc">Pc</option>
+      <option value="movil1">iPhone</option>
+      <option value="movil">Opoo</option>
+      <option value="moto">Yamaha R7</option>
+      <option value="mesa">Escritorio</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-    <form class="form" action="/filter" method="get">
-      <label class="label">Selecciona estado </label>
-      <select class="select" name="state" id="state">
-        <option value="">Elige</option>
-        <option value="true">Venta</option>
-        <option value="false">Compra</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+  <form class="form" action="/filter" method="get">
+    <label class="label"> Selecciona un campo </label>
+    <select class="select" name="fields" id="fields">
+      <option value="">Elige</option>
+      <option value="img">Imagen</option>
+      <option value="price">Precio</option>
+      <option value="name">Nombre</option>
+    </select>
 
-    <form class="form" action="/tags" method="get">
-      <label class="label"> Distintos tags</label>
-      <select class="select" name="tags" id="tags">
-        <option value="tags">Tags</option>
-      </select>
-      <input class="button" type="submit" value="Mostrar" />
-    </form>
+    <label class="label">Selecciona un artículo</label>
+    <select class="select" name="name" id="name">
+      <option value="">Elige</option>
+      <option value="play 5">Play5</option>
+      <option value="nike">Zapatillas Nike</option>
+      <option value="xbox">Xbox</option>
+      <option value="silla">Silla</option>
+      <option value="reloj">Reloj</option>
+      <option value="pc">Pc</option>
+      <option value="apple">iPhone 11</option>
+      <option value="oppo">Oppo</option>
+      <option value="yamaha R7">Yamaha R7</option>
+      <option value="escritorio">Escritorio</option>
+      <option value="renault">Renault</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-    <div class="form"><p></p>
-      <ul>
-        <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-        <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-  
-      </ul>
-    </div>
+  <form class="form" action="/filter" method="get">
+    <label class="label"> Selecciona un tags</label>
+    <select class="select" name="tags" id="tags">
+      <option value="">Elige</option>
+      <option value="lifestyle">lifestyle</option>
+      <option value="mobile">movil</option>
+      <option value="motor">motor</option>
+      <option value="work">trabajo</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-    
+  <form class="form" action="/filter" method="get">
+    <label class="label">Selecciona estado </label>
+    <select class="select" name="state" id="state">
+      <option value="">Elige</option>
+      <option value="true">Venta</option>
+      <option value="false">Compra</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
 
-    <div class="container">
-      <% filterAds.forEach(elem=> { %> <% if(elem.name && elem.price &&
-      elem.img) {%>
-      <p>
-        Articulo <%= elem.name %> <%= elem.adStatus %> y su precio es de <%=
-        elem.price %> euros
-        <img class="image" src="../images/<%= elem.img %>.jpg" /> <span class="span"><%= elem.tags %></span>
-      </p>
-      <% } else if(elem.name) { %>
-      <p>Articulo <%= elem.name %></p>
-      <% } else if(elem.price){ %>
-      <p>Su precio es de <%= elem.price %> euros</p>
-      <% } else { %>
-      <img class="image" src="../images/<%= elem.img %>.jpg" />
-      <% } %> <% }) %>
-    </div>
-  </body>
+  <form class="form" action="/tags" method="get">
+    <label class="label"> Distintos</label>
+    <select class="select" name="tags" id="tags">
+      <option value="tags">Tags</option>
+    </select>
+    <input class="button" type="submit" value="Mostrar" />
+  </form>
+
+  <div class="container">
+    <% filterAds.forEach(elem=> { %> <% if(elem.name && elem.price && elem.img) {%>
+        <p>
+          Articulo <%= elem.name %>
+            <%= elem.adStatus %> y su precio es de <%= elem.price %> euros
+                <img class="image" src="../images/<%= elem.img %>.jpg" />
+                <span class="span">
+                  <%= elem.tags %>
+                </span>
+        </p>
+
+        <% } else if(elem.name) { %>
+          <p>Articulo <%= elem.name %>
+          </p>
+          <% } else if(elem.price){ %>
+            <p>Su precio es de <%= elem.price %> euros</p>
+            <% } else { %>
+              <img class="image" src="../images/<%= elem.img %>.jpg" />
+              <% } %>
+                <% }) %>
+  </div>
+
+  <div class="form">
+    <ul>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001/range/659">Rango de precios</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
+    </ul>
+  </div>
+
+  <% include footer.ejs %>
+
+</body>
+
 </html>

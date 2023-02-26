@@ -66,7 +66,7 @@ http://localhost:3001/api/catalogue/tags?tag=tags
 #### Método que me devuelve los distintos tag que tienen los anuncios.
 
 ### GET /api/catalogue/range/
-// http://localhost:3001/api/catalogue/range/
+// http://localhost:3001/api/catalogue/range/659
 #### Método para buscar por rango de precio.
 - -50 seria <= 50
 http://localhost:3001/api/catalogue/range/-200
@@ -75,7 +75,7 @@ http://localhost:3001/api/catalogue/range/9000-
 - 50-100 seria rango de precios entre 50 y 100
 http://localhost:3001/api/catalogue/range/50-800
 - 50 seria anuncio con precio exacto
-http://localhost:3001/api/catalogue/price/659
+http://localhost:3001/api/catalogue/range/659
 
 
 ## Metodos PUT y POST se pueden comprobar mediante Postman
@@ -107,6 +107,15 @@ localhost:3001/api/catalogue/modify/"_id del anuncio"
 ```
 
 # Pagina frontend simple
+## Cuenta con una página frontend simple.
+http://127.1.1.0:3001/
+## con tres links:
+### Nos permite gestionar filtrados y busquedas anteriormente descritos.
+http://127.0.0.1:3001/filter
+### Crear un anuncio.
+http://127.1.1.0:3001/create
+### Filtrar por distintos precios.
+http://127.1.1.0:3001/range/659
 
 
 
