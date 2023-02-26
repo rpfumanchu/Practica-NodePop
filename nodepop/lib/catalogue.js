@@ -40,7 +40,7 @@ async function getCatalogue(req) {
     }
 
     if (filterByImg) {
-      filter.img = filterByImg;
+      filter.img = new RegExp('^' + filterByImg, "i");
     }
 
     const ad = await Ad.catalogue(

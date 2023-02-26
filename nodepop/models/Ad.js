@@ -7,8 +7,6 @@ const AdSchema = mongoose.Schema({
   price: Number,
   tags: Array,
   img: String
-}, {
-  // collection: 'ad'
 });
 
 
@@ -29,44 +27,45 @@ AdSchema.statics.distinctTag = function() {
   return query.exec();
 }
 
-//DONE Método estático para aplicar un rango de precio al anúncio
+//DONE Método estático para aplicar un rango de precio al anuncio
 AdSchema.statics.priceRange = function(price) {
-  if(!price.includes("-")){
-// Filtrar directamente por el precio exacto
-  } else {
-const newPrice = price.split("-")
-  const price1 = newPrice[0]
-  const price2 = newPrice[1]
-  if (price1 && price2) {
 
+//NOTE Precio exacto 50
+  if(!price.includes("-")){
+    const query = Ad.find({price:  price})
+    console.log(price)
+    return query.exec();
+
+  } else {
+    const newPrice = price.split("-")
+    const price1 = newPrice[0]
+    const price2 = newPrice[1]
+
+    if (price1 && price2) {
+//NOTE Rango de precio 50-200
     const query = Ad.find({price:{$gte : price1, $lte : price2}})
     console.log(price1,price2)
     return query.exec();
 
-  }else if(price1) {
+    }else if(price1) {
+//NOTE Precio mayor igual 50-
     const query = Ad.find({price:{$gte : price1}})
     return query.exec();
 
-  }else if(price2) {
+    }else if(price2) {
+//NOTE Precio menor igual -50
     const query = Ad.find({price:{$lte : price2}})
     return query.exec();
-
-  } 
+    } 
   }
-  
-  //price = price.toString()
+}
+
+//DONE Método para cambiar true o false del state de anuncio por venta o compra
+ AdSchema.virtual("adStatus").get(function() {
+  return this.state? "en venta" : "compro";
+ });
+
  
-}
-
-AdSchema.statics.price = function(price) {
-  const query = Ad.find({price:  price})
-  console.log(price)
-  return query.exec();
-}
-
-AdSchema.virtual("stateText").get(función() {
- return this.state ? "Si" : "No";
-});
 
 // crear el modelo de Ad
 const Ad = mongoose.model('Ad', AdSchema);

@@ -36,6 +36,36 @@
   font-size: 22px;
 
 }
+
+.links {
+  text-align: center;
+  padding: 8px ;
+  margin-bottom: 8px;
+  font-size: 22px;
+  text-decoration: none;
+  background-color: #74e17f;
+  color: black;
+  border-radius: 8px;
+}
+
+.links-a {
+  text-align: center;
+  padding: 8px ;
+  margin-bottom: 8px;
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+  background-color: #557ae1;
+}
+
+
+
+.span {
+  background-color: #74e17fac ;
+  border-radius: 6px;
+  padding: 2px 5px 2px 5px;
+}
 .select {
   display: flex;
   gap: 10px;

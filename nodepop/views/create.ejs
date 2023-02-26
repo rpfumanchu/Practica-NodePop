@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href="/stylesheets/form.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <% include title.ejs %>
+
+  <form action="/create" method="post"> 
+    <div class="form">
+      <p class="select"><h2> Crea un anuncio</h2></p>
+    </div>
+    <div class="form">
+      <label class="label" for="name">Artículo</label>
+      <input class="select"  name="name" id="name" type="text" placeholder="Introduce el nombre">
+    </div>
+    <div class="form">
+      <label class="label" for="state">Estado venta/compra</label>
+      <input class="select"  name="state" id="state" type="text" placeholder="Introduce true o false">
+    </div>
+    <div class="form">
+      <label class="label" for="price">Precio</label>
+      <input class="select"  name="price" id="price" type="number" placeholder="Introduce un precio">
+    </div>
+    <div class="form">
+      <label class="label" for="tag">tags (lifestyle, mobile, motor, work)</label>
+      <input class="select"  name="tags" id="tag" type="text" placeholder="Introduce un tag">
+    </div>
+    <div class="form">
+      <label class="label" for="img">imagen</label>
+      <input class="select"  name="img" id="img" type="text" placeholder="Introduce una imagen">
+    </div>
+    <div class="form">
+      <button class="button"  type="submit">Crear</button>
+    </div>
+
+  </form>
+  <div class="form">
+    <p class="select">Creado con éxito el anuncio  </p>
+  </div>
+  <div class="form"><p></p>
+    <ul>
+      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
+
+    </ul>
+  </div>
+  
+ 
+</body>
+</html>

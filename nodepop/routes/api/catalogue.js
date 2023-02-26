@@ -13,24 +13,25 @@ const { validationResult } = require("express-validator");
 //DONE Lista de anuncios con posibilidad de paginación
 //DONE Con filtros por tag,
 //DONE tipo de anuncio(venta o búsqueda)
-//TODO nombre de artículo(que empiece por el dato buscado)
-//TODO rango de precio (precio min. y precio max.)
-//TODO modificar anuncio
-//TODO crear anuncio
+//DONE nombre de artículo(que empiece por el dato buscado)
+//DONE rango de precio (precio min. y precio max.), menor igual, mayor igual y precio exacto
+//DONE modificar anuncio
+//DONE crear anuncio
 
 
+//DONE Filtra anuncios por todos sus campos e implemto limit, skip, fields
 //NOTE GET /api/catalogue
 //NOTE Ejemplos de url para las distintas query
-  // http://127.0.0.1:3001/api/catalogue
-  // http://localhost:3001/api/catalogu?name=nikaaaaaa
-  // http://localhost:3001/api/catalogue?_id=(id producto)
-  // http://localhost:3001/api/catalogue?tags=motor
-  // http://localhost:3001/api/catalogue?state=true
-  // http://localhost:3001/api/catalogue?sort=price&fields=price
-  // http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
-  // http://localhost:3001/api/catalogue?fields=img&img=moto
-
-
+// http://localhost:3001/api/catalogue
+// http://localhost:3001/api/catalogue?name=nike
+// http://localhost:3001/api/catalogue?name=P
+// http://localhost:3001/api/catalogue?_id=(id producto)
+// http://localhost:3001/api/catalogue?tags=motor
+// http://localhost:3001/api/catalogue?state=true
+// http://localhost:3001/api/catalogue?sort=price&fields=price
+// http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
+// http://localhost:3001/api/catalogue?fields=img&img=moto
+// http://localhost:3001/api/catalogue?fields=img&img=c
 router.get("/", findOut(), async (req, res, next) => {
   try {
     
@@ -43,8 +44,8 @@ router.get("/", findOut(), async (req, res, next) => {
   }
 });
 
+//DONE tipos de tag distintos
 //NOTE GET /api/catalogue/tags
-// tipos de tags
 // http://localhost:3001/api/catalogue/tags?tag=tags
 router.get("/tags", async (req, res, next) => {
   try {
@@ -61,7 +62,6 @@ router.get("/tags", async (req, res, next) => {
 //DONE modifica un anuncio
 //NOTE PUT /api/catalogue/modify
 //localhost:3001/api/catalogue/modify/"_id del anuncio"
-
 router.put("/modify/:id", findOut(), async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -79,6 +79,7 @@ router.put("/modify/:id", findOut(), async (req, res, next) => {
   }
 });
 
+//DONE Crea un anuncio
 //NOTE POST /api/catalogue/create (body)
 //http://localhost:3001/api/catalogue/create
 router.post("/create", findOut(), async (req, res, next) => {
@@ -100,6 +101,7 @@ router.post("/create", findOut(), async (req, res, next) => {
   }
 });
 
+//DONE Borra un anuncio por su _id
 //NOTE DELETE /api/catalogue/delete
 // http://localhost:3001/api/catalogue/delete/"_id del anuncio"
 router.delete('/delete/:id', async (req, res, next) => {
@@ -117,8 +119,12 @@ router.delete('/delete/:id', async (req, res, next) => {
   }
 });
 
+//DONE Buscar anuncios filtrando por precio
 //NOTE GET /api/catalogue/range/
 // http://localhost:3001/api/catalogue/range/50-800
+// http://localhost:3001/api/catalogue/range/-200
+// http://localhost:3001/api/catalogue/range/11000-
+// http://localhost:3001/api/catalogue/range/659
 router.get("/range/:price", findOut(), async (req, res, next) => {
   try {
 
@@ -133,19 +139,7 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
   }
 })
 
-router.get("/price/:price", findOut(), async (req, res, next) => {
-  try {
-    validationResult(req).throw();
 
-    let price = req.params.price;
-
-    const pricer = await Ad.price(price);
-
-    res.json({ results: pricer });
-  } catch (error) {
-    next(error);
-  }
-});
 
 
 module.exports = router;

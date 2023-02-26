@@ -7,45 +7,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href="/stylesheets/form.css">
 
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 
 <body>
 
   <% include title.ejs %>
-  <form action="/range/" method="get">
-     <select  id="rango">
-    <option value="50-200" name = "price"> entre 50 y 200</option>
-    <option value="200-2000" name = "price">entre 200 y 2000</option>
-  </select>
-  <input type="submit" value="Mostrar">
-  </form>
-
+ 
   <div class="form">
     <ul class="label">
-      <li class="">
-        <a href="http://127.0.0.1:3001/range/559-800"  rel="noreferrer noopener">precio entre 559 y 800 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/559-800"  rel="noreferrer noopener">precio entre 559 y 800 euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/range/5000-20000"  rel="noreferrer noopener">precio entre 5000 y 20000 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/5000-20000"  rel="noreferrer noopener">precio entre 5000 y 20000 euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/range/-2000" rel="noreferrer noopener">precio menor o igual a 200 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/-200" rel="noreferrer noopener">precio menor o igual a 200 euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/range/-5000"  rel="noreferrer noopener">precio menor o igual a 50000  euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/-5000"  rel="noreferrer noopener">precio menor o igual a 50000  euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/range/15000-"  rel="noreferrer noopener">precio mayor o igual a 15000 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/15000-"  rel="noreferrer noopener">precio mayor o igual a 15000 euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/range/5000-"  rel="noreferrer noopener">precio mayor o igual a 5000 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/5000-"  rel="noreferrer noopener">precio mayor o igual a 5000 euros </a>
       </li>
-      <li>
-        <a href="http://127.0.0.1:3001/price/659" target="_blank" rel="noreferrer noopener">precio exacto de 659 euros </a>
+      <li class="links-a">
+        <a class="links-a" href="http://127.0.0.1:3001/range/659"  rel="noreferrer noopener">precio exacto de 659 euros </a>
       </li>
     </ul>
 
+  </div>
+  <div class="form"><p></p>
+    <ul>
+      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
+
+    </ul>
   </div>
   
 

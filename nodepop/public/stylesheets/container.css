@@ -8,9 +8,6 @@ body  {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 
   margin-bottom: 10px;
-  
-  
-  
 }
 
 h1 {
@@ -43,12 +40,11 @@ h2 {
 }
 
 .p {
+  padding: 0px 0px 15px 0px;
   text-align: center;
   font-size: 25px;
 
 }
-
-
 
 .container {
   display: grid;

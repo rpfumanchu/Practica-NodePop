@@ -7,15 +7,24 @@
  
   <link rel='stylesheet' href="/stylesheets/form.css">
   
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 <body>
   <% include title.ejs %>
   
   <div class="form">
    
-    <p class ="label">Estos son los tags disponibles: <%= tags %></p>
+    <h2>tags disponibles <p class="links-a"><%= tags %></p></h2>
 
+  </div>
+
+  <div class="form"><p></p>
+    <ul>
+      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
+      <li class="links"><a class="links" href="http://127.1.1.0:3001/crea
+      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
+
+    </ul>
   </div>
 
 
