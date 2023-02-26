@@ -12,24 +12,24 @@ router.get("/", function (req, res, next) {
 
 /* GET create page. */
 router.get("/create", function (req, res, next) {
+  res.locals.saveAd = null;
   res.render("create");
 });
 
 //DONE Filtra anuncios por todos sus campos e implemto limit, skip, fields
 //NOTE get /filter
 // http://127.0.0.1:3001/filter
- router.get("/filter", findOut(), async (req, res, next) => {
-   try {
-    
-     const ad = await getCatalogue(req);
+router.get("/filter", findOut(), async (req, res, next) => {
+  try {
+    const ad = await getCatalogue(req);
 
-     res.locals.filterAds = ad;
-     //res.locals.filteredByField = req.query.fields;
-     res.render("filter-ad");
-   } catch (error) {
-     next(error);
-   }
- });
+    res.locals.filterAds = ad;
+    //res.locals.filteredByField = req.query.fields;
+    res.render("filter-ad");
+  } catch (error) {
+    next(error);
+  }
+});
 
 //DONE Buscar anuncios filtrando por precio
 //NOTE GET /range/
@@ -49,8 +49,7 @@ router.get("/range/:price", findOut(), async (req, res, next) => {
   }
 });
 
-
-//DONE distintos tags que hay en mi bd 
+//DONE distintos tags que hay en mi bd
 //NOTE GET /tags
 // http://127.0.0.1:3001/tags?tag=tags
 router.get("/tags", async (req, res, next) => {
@@ -59,8 +58,8 @@ router.get("/tags", async (req, res, next) => {
 
     const ad = await Ad.distinctTag(tags);
 
-    res.locals.tags = ad
-    res.render("tags")
+    res.locals.tags = ad;
+    res.render("tags");
   } catch (error) {
     next(error);
   }
@@ -71,7 +70,6 @@ router.get("/tags", async (req, res, next) => {
 //http:127.0.0.1/:3001/create
 router.post("/create", findOut(), async (req, res, next) => {
   try {
-    
     const adData = req.body;
 
     //NOTE Creo una instancia de ad en memoria
@@ -79,16 +77,15 @@ router.post("/create", findOut(), async (req, res, next) => {
 
     //NOTE La persistimos en la base de datos
     const saveAd = await ad.save();
-    //res.json({ result: saveAd });
-    res.locals.saveAd = saveAd
-    res.render("create")
-    console.log(`creado con exito anuncio con id ${saveAd.id} y nombre ${saveAd.name} `);
 
+    res.locals.saveAd = saveAd;
+    res.render("create");
+    console.log(
+      `creado con exito anuncio con id ${saveAd.id} y nombre ${saveAd.name} `
+    );
   } catch (error) {
     next(error);
   }
 });
-
-
 
 module.exports = router;

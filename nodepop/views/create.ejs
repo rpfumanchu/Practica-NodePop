@@ -45,9 +45,14 @@
     </div>
 
   </form>
-    <!-- <div class="form">
-    <p class="select">Creado con éxito el anuncio  </p>
-  </div> -->
+
+  <% if (!!saveAd) {  %>
+    <div class="form">
+      <p class="select">Creado con éxito el anuncio: <%= saveAd.name%></p>
+    </div>
+
+  <% } %>
+    <!--  -->
   <div class="form">
     <ul>
       <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
