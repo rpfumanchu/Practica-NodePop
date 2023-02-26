@@ -6,7 +6,7 @@ const findOut = require("./api/validations");
 const getCatalogue = require("../lib/filter");
 
 /* GET home page. */
-// http://127.0.0.1:3001/filter
+// http://127.0.0.1:3001
 router.get("/", function (req, res, next) {
   res.render("index");
 });
