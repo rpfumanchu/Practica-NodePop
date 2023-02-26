@@ -6,11 +6,13 @@ const findOut = require("./api/validations");
 const getCatalogue = require("../lib/filter");
 
 /* GET home page. */
+// http://127.0.0.1:3001/filter
 router.get("/", function (req, res, next) {
   res.render("index");
 });
 
 /* GET create page. */
+// http://127.0.0.1:3001/create
 router.get("/create", function (req, res, next) {
   res.locals.saveAd = null;
   res.render("create");
