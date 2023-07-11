@@ -1,0 +1,94 @@
+.navbar {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  position: fixed;
+  top: 0px;
+  background-color: gainsboro;
+  z-index: 9999;
+}
+
+.list-item {
+  color: #4b4b4b;
+  padding: 2px 12px;
+  margin: 0 20px;
+  transition: none linear 0.5s;
+  transition-property: background-color, color;
+  border-radius: 6px;
+}
+
+.list-item > a:hover {
+  background-color: #13c1ac;
+  color: white;
+}
+
+ul.list {
+  display: flex;
+  font-size: 20px;
+}
+
+h4 {
+  display: block;
+  font-size: 25px;
+}
+.navbar .locale {
+  display: flex;
+  flex-direction: row;
+}
+.navbar .locale .locale-link {
+  margin-left: 20px;
+  margin-right: 5px;
+  color: var(--bg-color);
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--bg-color);
+  color: black;
+  font-size: 30px;
+}
+
+.title-h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.login {
+  color: red;
+}
+
+.logaut {
+  color: blue;
+}
+
+/* .greet-user {
+  display: flex;
+  position: absolute;
+  left: 300px;
+  font-size: 25px;
+}
+
+.greet-user-p {
+  margin-left: 20px;
+  color: #13c1ac;
+}
+
+.close-button {
+  border-radius: 8px;
+  background-color: red;
+  font-size: 20px;
+  color: white;
+}  */

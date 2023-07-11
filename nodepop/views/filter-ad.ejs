@@ -6,8 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel='stylesheet' href="/stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/navbar.css" />
   <link rel="stylesheet" href="/stylesheets/form.css" />
-
+  <link rel="stylesheet" href="/stylesheets/footer.css" />
 
   <title>
     <%= title %>
@@ -15,160 +18,242 @@
 </head>
 
 <body>
+  <header class="layout-header">
+    <% include navbar.ejs %>
+
+  </header>
+
   <% include title.ejs %>
+    <main class="layout-main">
 
 
-  <form class="form" action="/filter" method="get">
-    <input class="button" type="submit" value="Catálogo" />
-    <label class="label" for="limit"></label>
-    <button class="button" id="limit" name="limit" value="2">
-      2 anuncios
-    </button>
-    <label class="label" for="limit2"></label>
-    <button class="button" id="limit2" name="limit" value="4">
-      4 anuncios
-    </button>
-    <label class="label" for="skip"></label>
-    <button class="button" id="skip" name="skip" value="4">Skip 4</button>
-  </form>
+      <form class="form" action="/filter" method="get">
 
-  <form class="form" action="/filter" method="get">
-    <label class="label">por orden</label>
-    <select class="select" name="sort" id="sort">
-      <option value="">Elige</option>
-      <option value="name">Nombre</option>
-      <option value="price">precio</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+        <input class="button" type="submit" value="Catalogue" />
+        <label class="label" for="limit"></label>
+        <button class="button" id="limit" name="limit" value="2">
+          2 ads
+        </button>
 
-  <form class="form" action="/filter" method="get">
-    <label class="label">Selecciona un artículo</label>
-    <select class="select" name="name" id="name">
-      <option value="">Elige</option>
-      <option value="play 5">Play5</option>
-      <option value="nike">Zapatillas Nike</option>
-      <option value="xbox">Xbox</option>
-      <option value="silla">Silla</option>
-      <option value="reloj">Reloj</option>
-      <option value="pc">Pc</option>
-      <option value="apple">iPhone 11</option>
-      <option value="oppo">Oppo</option>
-      <option value="yamaha R7">Yamaha R7</option>
-      <option value="escritorio">Escritorio</option>
-      <option value="renault">Renault</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+        <label class="label" for="limit2"></label>
+        <button class="button" id="limit2" name="limit" value="4">
+          4 ads
+        </button>
 
-  <form class="form" action="/filter" method="get">
-    <label class="label">Selecciona la letra </label>
-    <select class="select" name="name" id="name">
-      <option value="">Elige</option>
-      <option value="r">R</option>
-      <option value="N">N</option>
-      <option value="P">P</option>
-      <option value="x">x</option>
-      <option value="S">S</option>
-      <option value="r">r</option>
-      <option value="p">p</option>
-      <option value="y">y</option>
-      <option value="p">p</option>
-      <option value="E">E</option>
-      <option value="A">A</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+        <label class="label" for="skip"></label>
+        <button class="button" id="skip" name="skip" value="4">
+          "Skip 4
+        </button>
 
-  <form class="form" action="/filter" method="get">
-    <label class="label"> Selecciona un campo </label>
-    <select class="select" name="fields" id="fields">
-      <option value="">Elige</option>
-      <option value="img">Imagen</option>
-      <option value="price">Precio</option>
-      <option value="name">Nombre</option>
-    </select>
+      </form>
 
-    <label class="label">Selecciona un artículo</label>
-    <select class="select" name="name" id="name">
-      <option value="">Elige</option>
-      <option value="play 5">Play5</option>
-      <option value="nike">Zapatillas Nike</option>
-      <option value="xbox">Xbox</option>
-      <option value="silla">Silla</option>
-      <option value="reloj">Reloj</option>
-      <option value="pc">Pc</option>
-      <option value="apple">iPhone 11</option>
-      <option value="oppo">Oppo</option>
-      <option value="yamaha R7">Yamaha R7</option>
-      <option value="escritorio">Escritorio</option>
-      <option value="renault">Renault</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+      <form class="form" action="/filter" method="get">
+        <label class="label">
+          By order
+        </label>
 
-  <form class="form" action="/filter" method="get">
-    <label class="label"> Selecciona un tags</label>
-    <select class="select" name="tags" id="tags">
-      <option value="">Elige</option>
-      <option value="lifestyle">lifestyle</option>
-      <option value="mobile">movil</option>
-      <option value="motor">motor</option>
-      <option value="work">trabajo</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+        <select class="select" name="sort" id="sort">
+          <option value="">
+            Choose
+          </option>
+          <option value="name">
+            Name
+          </option>
+          <option value="price">
+            Price
+          </option>
+        </select>
 
-  <form class="form" action="/filter" method="get">
-    <label class="label">Selecciona estado </label>
-    <select class="select" name="state" id="state">
-      <option value="">Elige</option>
-      <option value="true">Venta</option>
-      <option value="false">Compra</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+        <input class="button" type="submit" value="Show" />
 
-  <form class="form" action="/tags" method="get">
-    <label class="label"> Distintos</label>
-    <select class="select" name="tags" id="tags">
-      <option value="tags">Tags</option>
-    </select>
-    <input class="button" type="submit" value="Mostrar" />
-  </form>
+      </form>
+      <form class="form" action="/filter" method="get">
 
-  <div class="container">
-    <% filterAds.forEach(elem=> { %> <% if(elem.name && elem.price && elem.img) {%>
-        <p class="ad">
-          Articulo <%= elem.name %>
-            <%= elem.adStatus %> y su precio es de <%= elem.price %> euros
-                <img class="image" src="../images/<%= elem.img %>.jpg" />
-                <span class="span">
-                  <%= elem.tags %>
-                </span>
-        </p>
+        <label class="label">
+          Select an item
+        </label>
 
-        <% } else if(elem.name) { %>
-          <p>Articulo <%= elem.name %>
-          </p>
-          <% } else if(elem.price){ %>
-            <p>Su precio es de <%= elem.price %> euros</p>
-            <% } else { %>
-              <img class="image" src="../images/<%= elem.img %>.jpg" />
-              <% } %>
-                <% }) %>
-  </div>
+        <select class="select" name="name" id="name">
+          <option value="">
+            Choose
+          </option>
+          <% filterAds.forEach(ad=> { %> <option value="<%= ad.name %>">
+              <%=(ad.name)%>
+            </option> })
+            <%})%>
+        </select>
 
-  <div class="form">
-    <ul>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/range/659">Rango de precios</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-    </ul>
-  </div>
+        <input class="button" type="submit" value="Show" />
 
-  <% include footer.ejs %>
+      </form>
 
-</body>
+      <form class="form" action="/filter" method="get">
 
-</html>
+        <label class="label">
+          select a letter
+        </label>
+
+        <select class="select" name="name" id="name">
+          <option value="">
+            Choose
+          </option>
+          <option value="r">R</option>
+          <option value="N">N</option>
+          <option value="P">P</option>
+          <option value="x">x</option>
+          <option value="S">S</option>
+          <option value="r">r</option>
+          <option value="p">p</option>
+          <option value="y">y</option>
+          <option value="p">p</option>
+          <option value="E">E</option>
+          <option value="A">A</option>
+        </select>
+
+        <input class="button" type="submit" value="Show" />
+
+      </form>
+
+      <form class="form" action="/filter" method="get">
+
+        <label class="label">
+          Select a field
+        </label>
+
+        <select class="select" name="fields" id="fields">
+          <option value="">
+            Choose
+          </option>
+          <option value="img">
+            Image
+          </option>
+          <option value="price">
+            Price
+          </option>
+          <option value="name">
+            Name
+          </option>
+        </select>
+
+        <label class="label">
+          Select an item
+        </label>
+
+        <select class="select" name="name" id="name">
+          <option value="">
+            Choose
+          </option>
+          <% filterAds.forEach(ad=> { %> <option value="<%= ad.name %>">
+              <%=ad.name%>
+            </option> })
+            <%})%>
+        </select>
+
+        <input class="button" type="submit" value="Show" />
+
+      </form>
+
+      <form class="form" action="/filter" method="get">
+
+        <label class="label">
+          Select a tag
+        </label>
+
+        <select class="select" name="tags" id="tags">
+          <option value="">
+            Choose
+          </option>
+          <option value="lifestyle">
+            lifestyle
+          </option>
+          <option value="mobile">
+            Mobile
+          </option>
+          <option value="motor">
+            Engine
+          </option>
+          <option value="work">
+            Work
+          </option>
+        </select>
+
+        <input class="button" type="submit" value="Show" />
+
+      </form>
+
+      <form class="form" action="/filter" method="get">
+
+        <label class="label">
+          Select a state
+        </label>
+
+        <select class="select" name="state" id="state">
+          <option value="">
+            Choose
+          </option>
+          <option value="true">
+            Sale
+          </option>
+          <option value="false">
+            Buys
+          </option>
+        </select>
+
+        <input class="button" type="submit" value="Show" />
+
+      </form>
+
+      <form class="form" action="/tags" method="get">
+
+        <label class="label">
+          different
+        </label>
+
+        <select class="select" name="tags" id="tags">
+          <option value="tags">
+            Tags
+          </option>
+        </select>
+
+        <input class="button" type="submit" value="Show" />
+
+      </form>
+
+      <div class="container">
+        <% filterAds.forEach(elem=> { %>
+          <% if (elem.name && elem.price) { %>
+            <p class="ad">
+              Article <%= elem.name %>
+                <%= elem.adStatus %>
+                  <% if (elem.img && elem.img !=="" ) { %>
+                    and its price is <%= elem.price %> Euros
+                      <img class="image" src="images/<%= elem.img %>" />
+                      <% } else { %>
+                        and its price is <%= elem.price %> Euros
+                          <img class="image" src="images/foto-error.jpg" />
+                          <% } %>
+                            <span class="span">
+                              <%= elem.tags %>
+                            </span>
+            </p>
+            <% } else if (elem.name) { %>
+              <p>
+                Article <%= elem.name %>
+              </p>
+              <% } else if (elem.price) { %>
+                <p>
+                  and its price is <%= elem.price %> Euros
+                </p>
+                <% } else if (elem.img && elem.img !=="" ) { %>
+                  <img class="image" src="images/<%= elem.img %>" />
+                  <% } else { %>
+                    <img class="image" src="images/foto-error.jpg" />
+                    <% } %>
+                      <% }) %>
+      </div>
+
+
+
+    </main>
+
+    <% include footer.ejs %>

@@ -6,29 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/reset.css">
+  <link rel='stylesheet' href="/stylesheets/style.css">
+  <link rel='stylesheet' href="/stylesheets/layout.css">
+  <link rel='stylesheet' href="/stylesheets/navbar.css">
   <link rel='stylesheet' href="/stylesheets/form.css">
-
+  <link rel="stylesheet" href="/stylesheets/footer.css" />
   <title>
     <%= title %>
   </title>
 </head>
 
 <body>
+
+  <header class="layout-header">
+    <% include navbar.ejs %>
+  </header>
+
   <% include title.ejs %>
+    <main class="layout-main">
+      <div class="form">
+        <h2>
+          available tags
+          <p class="links-a">
+            <%= tags %>
+          </p>
+        </h2>
+      </div>
+    </main>
 
-    <div class="form">
-      <h2>tags disponibles <p class="links-a"><%= tags %></p></h2>
-    </div>
-
-    <div class="form">
-      <ul>
-        <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
-        <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-        <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-      </ul>
-    </div>
-
-
-</body>
-
-</html>
+    <% include footer.ejs %>

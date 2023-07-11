@@ -25,16 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /**
  * Rutas del API
  */
 app.use('/api/catalogue', require('./routes/api/catalogue'));
-
-
 
 /**
  * Rutas del Website
@@ -43,13 +41,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-
+app.use(function (err, req, res, next) {
   // comprobar si es un error de validación
   if (err.array) {
     // const errorInfo = err.array({ onlyFirstError: true })[0];
@@ -58,7 +55,6 @@ app.use(function(err, req, res, next) {
     err.status = 422;
   }
 
-
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -66,7 +62,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
 
-    // si lo que ha fallado es una petición al API
+  // si lo que ha fallado es una petición al API
   // devuelvo el error en formato JSON
   if (req.originalUrl.startsWith('/api/')) {
     res.json({ error: err.message });

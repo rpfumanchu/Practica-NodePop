@@ -6,7 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/reset.css">
-  <link rel='stylesheet' href="/stylesheets/form.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel='stylesheet' href="/stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/navbar.css" />
+  <link rel="stylesheet" href="/stylesheets/form.css" />
+  <link rel="stylesheet" href="/stylesheets/footer.css" />
 
   <title>
     <%= title %>
@@ -14,65 +18,78 @@
 </head>
 
 <body>
+  <header class="layout-header">
+    <% include navbar.ejs %>
+
+  </header>
 
   <% include title.ejs %>
+    <main class="layout-main">
 
-  <div class="form">
-    <ul class="label">
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/559-800" rel="noreferrer noopener">precio entre 559 y 800
-          euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/5000-20000" rel="noreferrer noopener">precio entre 5000 y
-          20000 euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/-200" rel="noreferrer noopener">precio menor o igual a
-          200 euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/-5000" rel="noreferrer noopener">precio menor o igual a
-          50000 euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/15000-" rel="noreferrer noopener">precio mayor o igual a
-          15000 euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/5000-" rel="noreferrer noopener">precio mayor o igual a
-          5000 euros </a>
-      </li>
-      <li class="links-a">
-        <a class="links-a" href="http://127.0.0.1:3001/range/659" rel="noreferrer noopener">precio exacto de 659 euros
-        </a>
-      </li>
-    </ul>
-  </div>
+      <div class="form">
+        <ul class="label">
+          <li class="links-a">
+            <a class="links-a" href="/range/559-800" rel="noreferrer noopener">
+              price between 559 and 800
+              euros
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/5000-20000" rel="noreferrer noopener">
+              "price between 5000 and
+              20000 Euro
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/-200" rel="noreferrer noopener">
+              price less than or equal to
+              200 Euro
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/-5000" rel="noreferrer noopener">
+              price less than or equal to
+              50000 Euro
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/15000-" rel="noreferrer noopener">
+              price less than or equal to
+              15000 Euro
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/5000-" rel="noreferrer noopener">
+              price less than or equal to
+              5000 Euro
+            </a>
+          </li>
+          <li class="links-a">
+            <a class="links-a" href="/range/659" rel="noreferrer noopener">
+              exact price of 659 Euro
+            </a>
+          </li>
+        </ul>
+      </div>
 
-  <div class="container">
-    <% priceRange.forEach(elem=> { %>
-      <p>Articulo <%= elem.name %>
-          <%= elem.adStatus %> y su precio es de
-            <%= elem.price %> euros
-              <img class="image" src="../images/<%= elem.img %>.jpg" /> <span class="span">
-                <%= elem.tags %>
-              </span>
-              <% }) %>
-      </p>
-  </div>
+      <div class="container">
+        <% priceRange.forEach(elem=> { %>
+          <p>
+            Article
+            <%= elem.name %>
+              <%=elem.adStatus%>
+                and its price is
+                <%= elem.price %>
+                  Euro
+                  <img class="image" src="../images/<%= elem.img %>" /> <span class="span">
+                    <%= elem.tags %>
+                  </span>
+                  <% }) %>
+          </p>
+      </div>
 
-  <div class="form">
-    <p></p>
-    <ul>
-      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-    </ul>
-  </div>
 
-  <% include footer.ejs %>
 
-</body>
+    </main>
 
-</html>
+    <% include footer.ejs %>

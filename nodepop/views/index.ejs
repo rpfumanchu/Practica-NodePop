@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/reset.css">
   <link rel='stylesheet' href="/stylesheets/style.css">
+  <link rel='stylesheet' href="/stylesheets/layout.css">
+  <link rel='stylesheet' href="/stylesheets/navbar.css">
   <link rel='stylesheet' href="/stylesheets/form.css">
+  <link rel="stylesheet" href="/stylesheets/footer.css" />
 
   <title>
     <%= title %>
@@ -15,19 +18,13 @@
 </head>
 
 <body>
+
+  <header class="layout-header">
+    <% include navbar.ejs %>
+  </header>
+
   <% include title.ejs %>
+    <main class="layout-main-custom-background-image">
+    </main>
 
-  <div class="form">
-    <h1>Elige una opción</h1>
-    <ul>
-      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/create">Crea un anuncio</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001/range/659">Rango de precios</a></li>
-    </ul>
-  </div>
-
-  <% include footer.ejs %>
-
-</body>
-
-</html>
+    <% include footer.ejs %>

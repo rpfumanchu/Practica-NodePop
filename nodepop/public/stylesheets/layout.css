@@ -1,0 +1,51 @@
+.layout-header {
+  border-bottom-width: 1px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+
+.layout-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  margin: 0 auto;
+
+  /* max-width: 760px; */
+
+  min-height: 100vh;
+}
+
+.layout-main-custom-background-image {
+  background-image: url('../images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  height: calc(150vh);
+}
+
+.layout-title {
+  border-bottom-width: 1px;
+  position: sticky;
+  /* top: 85px;
+  padding: 10px 15px; */
+  font-size: 22px;
+}
+
+.layout-footer {
+  width: 100%;
+  display: flex;
+  border-top-width: 1px;
+  /* position: sticky; */
+  position: absolute;
+  bottom: 0;
+
+  /* position: sticky; */
+}
+
+/* .layout-header,
+.layout-footer {
+  padding: 0 15px;
+} */

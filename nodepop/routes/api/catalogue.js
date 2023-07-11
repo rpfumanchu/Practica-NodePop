@@ -1,10 +1,9 @@
-
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Ad = require("../../models/Ad");
-const findOut = require("../api/validations");
-const getCatalogue = require("../../lib/filter");
-const { validationResult } = require("express-validator");
+const Ad = require('../../models/Ad');
+const findOut = require('../api/validations');
+const getCatalogue = require('../../lib/filter');
+const { validationResult } = require('express-validator');
 
 //NOTE CRUD: create, read, update, delete
 
@@ -17,7 +16,6 @@ const { validationResult } = require("express-validator");
 //DONE rango de precio (precio min. y precio max.), menor igual, mayor igual y precio exacto
 //DONE modificar anuncio
 //DONE crear anuncio
-
 
 //DONE Filtra anuncios por todos sus campos e implemto limit, skip, fields
 //NOTE GET /api/catalogue
@@ -32,13 +30,11 @@ const { validationResult } = require("express-validator");
 // http://localhost:3001/api/catalogue?fields=name&limit=4&skip=3
 // http://localhost:3001/api/catalogue?fields=img&img=moto
 // http://localhost:3001/api/catalogue?fields=img&img=c
-router.get("/", findOut(), async (req, res, next) => {
+router.get('/', findOut(), async (req, res, next) => {
   try {
-    
     const ad = await getCatalogue(req);
 
     res.json({ results: ad });
-
   } catch (error) {
     next(error);
   }
@@ -47,7 +43,7 @@ router.get("/", findOut(), async (req, res, next) => {
 //DONE tipos de tag distintos
 //NOTE GET /api/catalogue/tags
 // http://localhost:3001/api/catalogue/tags?tag=tags
-router.get("/tags", async (req, res, next) => {
+router.get('/tags', async (req, res, next) => {
   try {
     const tags = req.query.tags;
 
@@ -62,7 +58,7 @@ router.get("/tags", async (req, res, next) => {
 //DONE modifica un anuncio
 //NOTE PUT /api/catalogue/modify
 //localhost:3001/api/catalogue/modify/"_id del anuncio"
-router.put("/modify/:id", findOut(), async (req, res, next) => {
+router.put('/modify/:id', findOut(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
@@ -72,8 +68,9 @@ router.put("/modify/:id", findOut(), async (req, res, next) => {
     });
 
     res.json({ result: updatedAd });
-    console.log(`actualizado anuncio con id ${updatedAd.id} y nombre ${updatedAd.name} `);
-
+    console.log(
+      `actualizado anuncio con id ${updatedAd.id} y nombre ${updatedAd.name} `,
+    );
   } catch (error) {
     next(error);
   }
@@ -82,9 +79,8 @@ router.put("/modify/:id", findOut(), async (req, res, next) => {
 //DONE Crea un anuncio
 //NOTE POST /api/catalogue/create (body)
 //http://localhost:3001/api/catalogue/create
-router.post("/create", findOut(), async (req, res, next) => {
+router.post('/create', findOut(), async (req, res, next) => {
   try {
-    
     const adData = req.body;
 
     //NOTE Creo una instancia de ad en memoria
@@ -94,8 +90,9 @@ router.post("/create", findOut(), async (req, res, next) => {
     const saveAd = await ad.save();
 
     res.json({ result: saveAd });
-    console.log(`creado con exito anuncio con id ${saveAd.id} y nombre ${saveAd.name} `);
-
+    console.log(
+      `creado con exito anuncio con id ${saveAd.id} y nombre ${saveAd.name} `,
+    );
   } catch (error) {
     next(error);
   }
@@ -106,14 +103,12 @@ router.post("/create", findOut(), async (req, res, next) => {
 // http://localhost:3001/api/catalogue/delete/"_id del anuncio"
 router.delete('/delete/:id', async (req, res, next) => {
   try {
-
     const id = req.params.id;
-    
-    await Ad .deleteOne({ _id: id });
+
+    await Ad.deleteOne({ _id: id });
 
     res.json();
     console.log(`Eliminado con éxito anuncio con id ${id}`);
-
   } catch (error) {
     next(error);
   }
@@ -125,21 +120,16 @@ router.delete('/delete/:id', async (req, res, next) => {
 // http://localhost:3001/api/catalogue/range/-200
 // http://localhost:3001/api/catalogue/range/11000-
 // http://localhost:3001/api/catalogue/range/659
-router.get("/range/:price", findOut(), async (req, res, next) => {
+router.get('/range/:price', findOut(), async (req, res, next) => {
   try {
+    let price = req.params.price;
 
-  let price = req.params.price;
- 
-  const pricer = await Ad.priceRange(price);
-  
-  res.json({ results: pricer });
-  
+    const pricer = await Ad.priceRange(price);
+
+    res.json({ results: pricer });
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
-
-
-
+});
 
 module.exports = router;

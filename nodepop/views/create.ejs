@@ -6,62 +6,80 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/reset.css">
-  <link rel='stylesheet' href="/stylesheets/form.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel='stylesheet' href="/stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/navbar.css" />
+  <link rel="stylesheet" href="/stylesheets/formCreate.css" />
+  <link rel="stylesheet" href="/stylesheets/form.css" />
+  <link rel="stylesheet" href="/stylesheets/footer.css" />
+
+
   <title>
     <%= title %>
   </title>
 </head>
 
 <body>
+  <header class="layout-header">
+    <% include navbar.ejs %>
+
+  </header>
+
   <% include title.ejs %>
+    <main class="layout-main">
 
-  <form action="/create" method="post">
-    <div class="form">
-      <p class="p">Crea un anuncio</p>
-      
-    </div>
-    <div class="form">
-      <label class="label" for="name">Artículo</label>
-      <input class="select" name="name" id="name" type="text" placeholder="Introduce el nombre">
-    </div>
-    <div class="form">
-      <label class="label" for="state">Estado venta/compra</label>
-      <input class="select" name="state" id="state" type="text" placeholder="Introduce true o false">
-    </div>
-    <div class="form">
-      <label class="label" for="price">Precio</label>
-      <input class="select" name="price" id="price" type="number" placeholder="Introduce un precio">
-    </div>
-    <div class="form">
-      <label class="label" for="tag">tags (lifestyle, mobile, motor, work)</label>
-      <input class="select" name="tags" id="tag" type="text" placeholder="Introduce un tag">
-    </div>
-    <div class="form">
-      <label class="label" for="img">imagen</label>
-      <input class="select" name="img" id="img" type="text" placeholder="Introduce una imagen">
-    </div>
-    <div class="form">
-      <button class="button" type="submit">Crear</button>
-    </div>
+      <form action="/create" method="post" class="container-form">
 
-  </form>
+        <p class="p">
+          Create an ad
+        </p>
 
-  <% if (!!saveAd) {  %>
-    <div class="form">
-      <p class="select">Creado con éxito el anuncio: <%= saveAd.name%></p>
-    </div>
+        <label class="form-label" for="name">
+          Article
+        </label>
+        <input class="form-input" name="name" id="name" type="text" placeholder="Enter the name">
 
-  <% } %>
-    <!--  -->
-  <div class="form">
-    <ul>
-      <li class="links"><a class="links" href="http://127.0.0.1:3001/filter">Fitrado y busqueda</a></li>
-      <li class="links"><a class="links" href="http://127.1.1.0:3001">Home</a></li>
-    </ul>
-  </div>
+        <div class="form-label">
+          <label class="form-label" for="state">
+            sale
+          </label>
+          <input class="form-input" type="radio" name="state" value="true" />
 
-  <% include footer.ejs %>
+          <label class="form-label" for="state">
+            Buy
+          </label>
+          <input type="radio" class="form-input" name="state" id="state" value="false" />
+        </div>
 
-</body>
+        <label class="form-label" for="price">
+          Price
+        </label>
+        <input class="form-input" name="price" id="price" type="number" placeholder="Enter a price">
 
-</html>
+        <label class="form-label" for="tag">
+          Tags: lifestyle,work,motor,mobile
+        </label>
+        <input class="form-input" name="tags" id="tag" type="text" placeholder="Enter a tag">
+
+        <label class="form-label" for="img">
+          image
+        </label>
+        <input class="form-label-img" name="img" id="img" type="file" %>">
+
+        <button class="button" type="submit">
+          Create
+        </button>
+      </form>
+
+      <% if (!!saveAd) { %>
+        <p class="form-label">
+          Successfully created ad:
+          <%= saveAd.name%>
+        </p>
+        <% } %>
+
+
+
+    </main>
+
+    <% include footer.ejs %>
