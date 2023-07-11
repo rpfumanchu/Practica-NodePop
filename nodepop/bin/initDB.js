@@ -1,4 +1,8 @@
 'use strict';
+
+//NOTE cargo dotenv
+require('dotenv').config();
+
 const Ad = require('../models/Ad');
 const connection = require('../lib/connectMongoose');
 
